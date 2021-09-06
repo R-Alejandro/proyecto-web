@@ -22,7 +22,9 @@ Para realizar este paso, es necesario que tenga instalado el cliente de comandos
 ``` mysql -u root -p dbname < dbexport.sql```
 
 *es posible que pueda tener inconvenientes al importar la base de datos, dos opciones alternativas es importar de la siguiente forma*
+
 ``` mysql -u root -p -h localhost -D dbname --binary-mode -o < dbexport.sql```
+
 o 
 
 ``` mysql --u root -p dbname --default-character-set utf8 < dbexport.sql```
