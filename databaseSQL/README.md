@@ -27,7 +27,7 @@ Para realizar este paso, es necesario que tenga instalado el cliente de comandos
 
 o 
 
-``` mysql --u root -p dbname --default-character-set utf8 < dbexport.sql```
+``` mysql --u root -p dbname --default-character-set utf8 --binary-mode < dbexport.sql```
 
 ## *Metodo 2: ejecutar archivos*
 
