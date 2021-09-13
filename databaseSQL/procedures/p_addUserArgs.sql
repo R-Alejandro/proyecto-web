@@ -1,7 +1,7 @@
 DELIMITER $$
-CREATE PROCEDURE p_addUSerArgs(email CHAR, U_name CHAR, nickname CHAR, U_password CHAR)
+CREATE PROCEDURE p_addUSerArgs(email CHAR(40), U_name CHAR(20), nickname CHAR(40), U_password CHAR(60))
     BEGIN
-        INSERT INTO User(
+        INSERT INTO user(
                     usr_email,
                     usr_name,
                     usr_nickname,
