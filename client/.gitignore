@@ -1,0 +1,24 @@
+# Mira https://help.github.com/articles/ignoring-files/ para ver mas de los archivos ignorados.
+# Un gitignore es un archivo que le dice a git que archivos o directorios debe ignorar.
+# Es recomendado incluir archivos de pruebas locales, variables de entorno o configiraciones del editor
+
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
