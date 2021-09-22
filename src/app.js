@@ -1,14 +1,13 @@
 import express from "express";
-import users from "./api/fetchUser.js";
+import config from "./config/default.js";
+import indexRouter from "./routes/index.js";
 const app = express();
 
+app.use('/', indexRouter);
 
-app.use("/api", users);
-
-app.get('/api', (req, res) => {
-    res.json({
-        message:"API",
-    });
+app.listen(config.PORT, () => {
+    console.log(`Servidor corriendo en el port: ${config.PORT}`);
 });
+
 
 export default app;

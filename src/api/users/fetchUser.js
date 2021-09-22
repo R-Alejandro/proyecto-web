@@ -1,4 +1,4 @@
-import conn from "../server.js"; 
+/*import conn from "../server.js"; 
 import Router from "express"; 
 
 const router = Router(); 
@@ -12,4 +12,4 @@ router.get('/user' , (req , res)=>{
     }); 
 }); 
 
-export default router;
+export default router;*/
