@@ -1,0 +1,10 @@
+POST http://localhost:3001/auth/signup
+Content-Type: application/json
+
+{
+    "name": "lol",
+    "lastname": "lol"
+}
+
+###
+GET http://localhost:3001/users/all
