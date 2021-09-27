@@ -5,20 +5,19 @@ import middleware from "./middleware/index.js";
 
 const app = express();
 
-//routes 
+//add the configurations from config or another configs here
+//json spaces is a config only for development purposes
+app.set('json spaces', 2);
+
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use('/', indexRouter);
+app.use(middleware.page404);
 
 app.listen(config.PORT, () => {
     console.log(`Servidor corriendo en el port: ${config.PORT}`);
 });
 
-//add the configurations from config or another configs here
-//json spaces is a config only for development purposes
-app.set('json spaces', 2);
-
-//middleware
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(middleware.page404);
 
 export default app;

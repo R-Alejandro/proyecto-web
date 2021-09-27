@@ -11,7 +11,8 @@ router.post('/signup', (req, res) => {
     //put here the instance of the service auth
     const authServiceInstance = new AuthService();
     const status = authServiceInstance.SignUp();
-    res.json({message: status});
+    console.log(req.body);
+    res.send(req.body);
 });
 
 router.get('/signin', (req, res) => {
