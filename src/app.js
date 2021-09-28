@@ -7,7 +7,7 @@ const app = express();
 
 //add the configurations from config or another configs here
 //json spaces is a config only for development purposes
-app.set('json spaces', 2);
+app.set('json spaces', 0);
 
 
 app.use(express.json());
