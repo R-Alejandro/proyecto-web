@@ -1,14 +1,18 @@
 import { Router } from "express";
-import conn from "../../services/mysqlDB/mysqlConn.js"
+import pool from "../../services/mysqlDB/mysqlConn.js"
 const router = Router();
 
-router.get('/all', (req, res) => {
-    conn.query('SELECT * FROM User;', (err, results, fields) =>{ 
-        if (err) throw err; 
-        res.json({ 
-            users: results, 
-        }); 
-    }); 
+router.get('/all', async (req, res) => {
+
+    try {
+        const [rows] = await pool.query('SELECT * FROM user;');
+        res.json({
+            users: rows, 
+        });
+
+    } catch (error) {
+        throw error;
+    }
 });
 
 export default router;
