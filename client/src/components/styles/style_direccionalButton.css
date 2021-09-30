@@ -1,0 +1,15 @@
+.directionalButton_container{
+    width: 20vw;
+    height: 5vh;
+    background-color: #018ABE;
+    border-radius: 15px;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.directionalButton_container a{
+    text-decoration: none;
+    color: white;
+}
