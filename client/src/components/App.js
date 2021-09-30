@@ -5,7 +5,6 @@ import singIn from "../pages/singIn"
 import singUp from "../pages/singUp"
 import NotFound from '../pages/notFound'
 import Pruebas from '../pages/pruebasRozo'
-import './styles/fonts.css'
 
 function App() {
   return (
