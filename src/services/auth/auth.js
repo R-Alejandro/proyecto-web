@@ -1,5 +1,6 @@
 //import models for complete the class
 import User from "../../api/users/model.js";
+import { token } from "../../middleware/index.js";
 import bcrypt from "bcrypt";
 
 export default class AuthService{
@@ -10,7 +11,7 @@ export default class AuthService{
         try {
             //write here the logic
             console.log('hashing password');
-            //32 bytes for salt password
+            //10 bytes for salt password
             const hashedPassword = await bcrypt.hash(data.password, 10);
             console.log('password hashed');
 
@@ -20,14 +21,20 @@ export default class AuthService{
             console.log('user was created');
 
             console.log('crafting token');
-
+            const userToken = token.generateConfirmationToken(data.email);
+            console.log(userToken);
             console.log('token was created');
 
-            //console.log('sending email verification');
-            //console.log('email sent');
-            return status;
+            return { status, userToken };
         } catch (error) {
-            throw error;
+            console.error(error);
+            return;
         }
     }
+
+    validateEmail = (validToken) => {
+        const decode = token.confirmToken(validToken);
+        return decode.email;
+    }
+
 }

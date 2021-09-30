@@ -3,5 +3,6 @@ CREATE TABLE User(
     usr_name CHAR(20),
     usr_nickname CHAR(40) NOT NULL UNIQUE,
     usr_password CHAR(60) NOT NULL,
-    usr_avatar CHAR(80)
+    usr_avatar CHAR(80),
+    usr_auth BOOLEAN
 );
