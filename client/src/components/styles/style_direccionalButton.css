@@ -1,5 +1,5 @@
 .directionalButton_container{
-    width: 20vw;
+    width: 15vw;
     height: 5vh;
     background-color: #018ABE;
     border-radius: 15px;
@@ -11,5 +11,6 @@
 
 .directionalButton_container a{
     text-decoration: none;
-    color: white;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
 }
