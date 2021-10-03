@@ -1,37 +1,33 @@
 import { Router } from "express";
-import AuthService from "../services/auth/auth.js";
-import MailService from "../services/mail/mail.js";
+import authServiceInstance from "../services/auth/auth.js";
 import config from "../config/default.js";
 
 const router = Router();
 
 router.get('/signup', (req, res) => {
-    res.json({message: "pagina de signup XD"});
+    res.render('registrer');
+    //res.json({message: "pagina de signup"});
 });
 
 router.post('/signup', async (req, res) => {
-    //put here the instance of the services
-    const authServiceInstance = new AuthService();
-    const response = await authServiceInstance.SignUp(req.body);
+    const fullURL = `${req.protocol}://${req.hostname}:${config.PORT}${req.originalUrl}/`
+    const response = await authServiceInstance.SignUp(req.body, fullURL);
 
-    //res.set('token', 'TOKENVERGAS');
-    //console.log(res.getHeader('token'));
-    const fullURL = `${req.protocol}://${req.hostname}:${config.PORT}${req.originalUrl}/${response.userToken}`
-    console.log(fullURL);
-    //const mailStatus = MailService.sendEmail(fullURL);
-    //responses cfg
-    if(!response.status) {
-        res.status(400).send("user wasn`t created");
-        return;
-    }
-    res.status(200).send("user created");
+    if(!response) res.status(400).json({error: "user wasn't created"});
+    //201 created
+    res.status(201).json({estado: response});
 });
 
-router.get('/signup/:token', (req, res) => {
-    const authServiceInstance = new AuthService();
-    const response = authServiceInstance.validateEmail(req.params.token);
-    console.log(`el token fue de ${response}`);
-    res.json({email: response});
+router.get('/signup/:token', async(req, res) => {
+    try {
+        const response = await authServiceInstance.validateEmail(req.params.token);
+
+        res.status(200).json({estado: response}); //account validated, 1 -> usr_auth column in db
+    } catch (error) {
+        //401 unauthorized
+        res.status(401).json({error: "El enlace es invalido o expiro, solicite una nueva validacion"});
+    }
+
 });
 
 router.get('/signin', (req, res) => {

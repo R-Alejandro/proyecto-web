@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import config from "../config/default.js";
 
 const generateConfirmationToken = (email) => {
     //180 * 1000 milsecs -> 3 min
@@ -9,17 +10,12 @@ const generateConfirmationToken = (email) => {
         email: email,
         exp: expires.getTime() / 1000
     },
-    'secret');
+    config.SALT_PASSWORD);
 };
 
 const confirmToken = (token) => {
-    try {
-        const decode = jwt.verify(token, 'secret');
-        return decode;    
-    } catch (error) {
-        throw error;
-    }
-    
+    const decode = jwt.verify(token, config.SALT_PASSWORD);
+    return decode;    
 };
 
 export {

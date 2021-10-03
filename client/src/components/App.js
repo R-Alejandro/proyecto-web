@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/home" component={Home} />
-        <Route exact path="/singIn" component={singIn} />
-        <Route exact path="/singUp" component={singUp} />
+        <Route exact path="/signin" component={singIn} />
+        <Route exact path="/signup" component={singUp} />
         <Route component={NotFound}/>
       </Switch>
     </BrowserRouter>

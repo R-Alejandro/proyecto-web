@@ -2,6 +2,8 @@ import React from "react"
 import Input from "../components/input"
 import './../components/styles/style_singUp.css'
 
+import signUpForm from "../components/signUpForm"
+
 import nameIcon from './../images/singUp_name.svg'
 import emailIcon from './../images/singUp_email.svg'
 import nickNameIcon from './../images/singUp_nickName.svg'
@@ -12,7 +14,7 @@ class singUp extends React.Component {
         return (
             <div className="singUp__AllContainer">
                 <div>
-
+                
                 </div>
                 <div className="allContainer__form">
                     <form>
@@ -32,7 +34,7 @@ class singUp extends React.Component {
                             icon = {nickNameIcon}
                             label = "Nickname"
                             type = "text"
-                            name = "Nickname"
+                            name = "nickname"
                         />
                         <Input
                             icon = {passwordIcon}
@@ -42,10 +44,11 @@ class singUp extends React.Component {
                         />
                         <label className="form__checkbox">
                             <input type="checkbox" name="check" />
-                            check
+                            Terminos y condiciones
                         </label>
                         <input type="submit" value="Submit" />
                     </form>
+                    <signUpForm />
                 </div>
             </div>
         )
