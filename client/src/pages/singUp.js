@@ -54,7 +54,7 @@ class singUp extends React.Component {
                             icon={nickNameIcon}
                             label="Nickname"
                             type="text"
-                            name="Nickname"
+                            name="nickname"
                         />
                         <Input
                             icon={passwordIcon}
