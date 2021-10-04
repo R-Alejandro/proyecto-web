@@ -32,3 +32,9 @@ o
 ## *Metodo 2: ejecutar archivos*
 
 Para ejecutar las querys, si trabaja en *visual studio code* puede instalar una extension que administre el motor de la base de datos y ejecutar las querys desde alli.
+
+## exportar su propia version de la base de datos
+
+Para efectos de añadir nuevas caracteristicas en la base de datos, puede exportar su version de la base de datos, para esto es necesario que cuente con la linea de comandos del motor de la base de datos. A continuacion ejecute el comando
+
+``` mysqldump -u root -p --default-character-set=utf8 -N --routines --databases <<databse>> > dbexport.sql```
