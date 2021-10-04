@@ -1,6 +1,7 @@
 import { Router } from "express";
 import authServiceInstance from "../services/auth/auth.js";
 import config from "../config/default.js";
+import passport from "passport";
 
 const router = Router();
 
@@ -13,7 +14,7 @@ router.post('/signup', async (req, res) => {
     const fullURL = `${req.protocol}://${req.hostname}:${config.PORT}${req.originalUrl}/`
     const response = await authServiceInstance.SignUp(req.body, fullURL);
 
-    if(!response) res.status(400).json({error: "user wasn't created"});
+    if(!response) res.status(400).json({error: "No fue posible crear el usuario"});
     //201 created
     res.status(201).json({estado: response});
 });
@@ -30,12 +31,18 @@ router.get('/signup/:token', async(req, res) => {
 
 });
 
-router.get('/signin', (req, res) => {
-
+router.get('/login', (req, res) => {
+    res.render('login');
 });
 
-router.post('/signin', (req, res) => {
-    
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/auth/signup', //route not define lch:3001/
+    failureRedirect: '/users/all',
+    passReqToCallback: false
+}));
+
+router.get('/logout', (req, res) => {
+
 });
 
 export default router;

@@ -1,4 +1,5 @@
 import pool from "../../services/mysqlDB/mysqlConn.js";
+import bcrypt from "bcrypt";
 
 export default class User {
     constructor(email='', name='', nickname='', password=''){
@@ -42,7 +43,18 @@ export default class User {
         }
     }
 
-    selectUser(){
-        return true;
+    static findUser = async email => {
+        try {
+            const [rows, fields] = await pool.query("SELECT * FROM `User` WHERE `usr_email` = ?", [email]);
+            return new User(rows[0].usr_email,
+                rows[0].usr_name,
+                rows[0].usr_nickname,
+                rows[0].usr_password);
+        } catch (error) {
+            return false;
+        }
     }
+    comparePassword = async password => {
+        return await bcrypt.compare(password, this.password);
+    } 
 }
