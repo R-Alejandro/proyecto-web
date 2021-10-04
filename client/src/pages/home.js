@@ -5,11 +5,11 @@ const home = () => (
     <Fragment>
         <DirectionalButton
             layer="Sing In"
-            route="/singIn"
+            route="/signin"
         />
         <DirectionalButton
             layer="Sing Up"
-            route="/singUp"
+            route="/signup"
         />
     </Fragment>
 )

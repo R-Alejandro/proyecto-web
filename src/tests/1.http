@@ -1,0 +1,12 @@
+POST http://localhost:3001/auth/signup HTTP/1.1
+Content-Type: application/json
+
+{
+    "email": "tulio@email.com",
+    "name": "tulio",
+    "nickname": "maravilla",
+    "password": "jamon"
+}
+
+###
+GET http://localhost:3001/users/all
