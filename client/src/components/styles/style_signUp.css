@@ -1,11 +1,12 @@
 body {
     margin: 0;
-    overflow-x: hidden;
-    overflow-y: hidden;
 }
 
-.singUp__AllContainer {
+.signUp__AllContainer {
     display: flex;
+    
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .allContainer__leftMenu, .allContainer__rightForm {
@@ -70,7 +71,6 @@ body {
 
 .allContainer__rightForm {
     width: 70%;
-    /* justify-content: center; */
     align-items: center;
     justify-content: center;
 }
