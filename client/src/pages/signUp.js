@@ -2,19 +2,17 @@ import React from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
 
-import Input from "../components/input_singing"
-import SingDirection from "../components/left_singDirection"
-import './../components/styles/style_singUp.css'
+import Input from "../components/input_signing"
+import SignDirection from "../components/left_signDirection"
+import './../components/styles/style_signUp.css'
 
-import signUpForm from "../components/signUpForm"
-
-import nameIcon from './../images/singUp_name.svg'
-import emailIcon from './../images/singUp_email.svg'
-import nickNameIcon from './../images/singUp_nickName.svg'
-import passwordIcon from './../images/singUp_password.svg'
+import nameIcon from './../images/signUp_name.svg'
+import emailIcon from './../images/signUp_email.svg'
+import nickNameIcon from './../images/signUp_nickName.svg'
+import passwordIcon from './../images/signUp_password.svg'
 import logoImage from './../images/LogoName.svg'
 
-class singUp extends React.Component {
+class signUp extends React.Component {
     state = {
         email: '',
         name: '',
@@ -23,8 +21,8 @@ class singUp extends React.Component {
     }
 
     handleChange = event => {
-        const {name, value} = event.target
-        this.setState({[name]: value})
+        const { name, value } = event.target
+        this.setState({ [name]: value })
     }
 
     handleSubmit = event => {
@@ -39,34 +37,34 @@ class singUp extends React.Component {
         console.log('USEEEERRR', user)
         axios.post(`http://localhost:3001/auth/signup`, user)
             .then(res => {
-                if(res.data.estado){
+                if (res.data.estado) {
                     console.log('USUARIO CREADO')
-                }else{
+                } else {
                     console.log('ERRRORRRRR')
                 }
-                    
+
                 console.log(res);
                 console.log(res.data);
-        })
+            })
     }
 
     render() {
         return (
-            <div className="singUp__AllContainer">
+            <div className="signUp__AllContainer">
                 <div className="allContainer__leftMenu">
                     <div className="leftMenu__upPart"></div>
                     <div className="leftMenu__midlePart">
-                        <SingDirection
-                            label="SING IN"
-                            route="/singIn"
-                            color="singDirection__a_white"
+                        <SignDirection
+                            label="SIGN IN"
+                            route="/signIn"
+                            color="signDirection__a_white"
                         />
                         <div className="midlePart__select">
                             <div className="select__left"></div>
-                            <SingDirection
-                                label="SING UP"
-                                route="/singUp"
-                                color="singDirection__a_black"
+                            <SignDirection
+                                label="SIGN UP"
+                                route="/signUp"
+                                color="signDirection__a_black"
                             />
                         </div>
                     </div>
@@ -74,7 +72,9 @@ class singUp extends React.Component {
 
                 </div>
                 <div className="allContainer__rightForm">
-                    <img src={logoImage} className="rightForm__logo" />
+                    <Link to="home">
+                        <img src={logoImage} className="rightForm__logo" />
+                    </Link>
                     <form onSubmit={this.handleSubmit} className="rightForm__form">
                         <Input
                             icon={nameIcon}
@@ -114,11 +114,11 @@ class singUp extends React.Component {
                             </p>
                         </div>
                         <div className="form__linkAndSumbitContainer">
-                            <Link to="singIn">
+                            <Link to="signIn">
                                 <a>Already have an account?</a>
                             </Link>
                             <Link to="confirmation/email" >
-                                <input type="submit" value="SING UP" />
+                                <input type="submit" value="SIGN UP" />
                             </Link>
                         </div>
                     </form>
@@ -129,4 +129,4 @@ class singUp extends React.Component {
     }
 }
 
-export default singUp
+export default signUp

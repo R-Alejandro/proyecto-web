@@ -1,9 +1,9 @@
 import React from "react"
-import './styles/style_input_singing.css'
+import './styles/style_input_signing.css'
 
 const input = ({ icon, label, type, name, onChange }) => (
 
-    <div className="singing__contentInput">
+    <div className="signing__contentInput">
         <div className="contentInput__input">
             <img src={icon} />
             <input type={type} name={name} placeholder={label} onChange={onChange} />
