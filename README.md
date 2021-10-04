@@ -8,13 +8,14 @@ Se hara uso de un MERN (MySQL, Express, React y Nodejs) como stack de desarrollo
 
 ### Instalar dependencias
 
-De esta forma permite instalar las dependencias y modulos de la aplicacion
+De esta forma permite instalar las dependencias y modulos de la aplicacion. 
+*Es recomendable ejecutar este comando cada vez que package.json cambie*
 
 `npm install` or `npm i` 
 
 ### Ejecutar el servidor
 
-De estaforma se iniciara el servidor y ademas construira la app de react al mismo tiempo
+De esta forma se iniciara el servidor y ademas construira la app de react al mismo tiempo
 
 `npm start`
 
@@ -26,7 +27,7 @@ Permite que el servidor se reinicie cada vez que se realiza un cambio (para desa
 
 ### Ejecutar solo el servidor
 
-De esta forma se iniciara el servidor unicamente
+De esta forma se iniciara el servidor de node unicamente
 
 `npm run server`
 
