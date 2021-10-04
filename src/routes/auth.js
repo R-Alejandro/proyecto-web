@@ -15,9 +15,12 @@ router.post('/signup', async (req, res) => {
     const fullURL = `${req.protocol}://${req.hostname}:${config.PORT}${req.originalUrl}/`
     const response = await authServiceInstance.SignUp(req.body, fullURL);
 
-    if(!response) res.json({error: "No fue posible crear el usuario"});
-    //201 created
-    res.status(201).json({estado: response});
+    if(!response) {
+        res.status(400).json({error: "No fue posible crear el usuario"});
+    }else{
+        //201 created
+        res.status(201).json({estado: response});
+    }
 });
 
 router.get('/signup/:token', async(req, res) => {
@@ -37,7 +40,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/auth/signup', //route not define lch:3001/
+    successRedirect: 'http//:localhost:3000/singup', //route not define lch:3001/
     failureRedirect: '/users/all',
     passReqToCallback: false
 }));

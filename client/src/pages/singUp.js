@@ -47,7 +47,16 @@ class singUp extends React.Component {
                     
                 console.log(res);
                 console.log(res.data);
-        })
+                this.handleRedirect(res);
+            })
+    }
+    //redireccionamiento temporal
+    handleRedirect = res => {
+        if (res.status === 201){
+            window.location.href = 'http://localhost:3000/confirmation/email';
+        }else{
+            console.log('ERROR AL REGISTRAR EL USUARIO')
+        }
     }
 
     render() {
@@ -117,9 +126,10 @@ class singUp extends React.Component {
                             <Link to="singIn">
                                 <a>Already have an account?</a>
                             </Link>
-                            <Link to="confirmation/email" >
-                                <input type="submit" value="SING UP" />
-                            </Link>
+                            <input type="submit" value="SING UP" />
+                            {/* <Link to="confirmation/email" >
+                                
+                            </Link> */}
                         </div>
                     </form>
                     <signUpForm />
