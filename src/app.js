@@ -7,6 +7,7 @@ import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import exphbs from "express-handlebars";
+import cors from "cors";
 
 const app = express();
 //add the configurations from config or another configs here
@@ -22,9 +23,15 @@ app.engine('.hbs', exphbs({
     extname: '.hbs'
 }));
 app.set('view engine', '.hbs');
+const corsOptions ={
+    origin:'*', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200,
+}
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(cors(corsOptions)) // Use this after the variable declaration
 app.use(session({
     secret: config.SALT_PASSWORD,
     resave: true,

@@ -11,10 +11,11 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
+    console.log('DATAAAAA', req.body);
     const fullURL = `${req.protocol}://${req.hostname}:${config.PORT}${req.originalUrl}/`
     const response = await authServiceInstance.SignUp(req.body, fullURL);
 
-    if(!response) res.status(400).json({error: "No fue posible crear el usuario"});
+    if(!response) res.json({error: "No fue posible crear el usuario"});
     //201 created
     res.status(201).json({estado: response});
 });

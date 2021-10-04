@@ -1,4 +1,5 @@
 import React from "react"
+import axios from "axios"
 import { Link } from "react-router-dom"
 
 import Input from "../components/input_singing"
@@ -14,6 +15,41 @@ import passwordIcon from './../images/singUp_password.svg'
 import logoImage from './../images/LogoName.svg'
 
 class singUp extends React.Component {
+    state = {
+        email: '',
+        name: '',
+        nickname: '',
+        password: ''
+    }
+
+    handleChange = event => {
+        const {name, value} = event.target
+        this.setState({[name]: value})
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const user = {
+            email: this.state.email,
+            name: this.state.name,
+            nickname: this.state.nickname,
+            password: this.state.password
+        };
+        console.log()
+        console.log('USEEEERRR', user)
+        axios.post(`http://localhost:3001/auth/signup`, user)
+            .then(res => {
+                if(res.data.estado){
+                    console.log('USUARIO CREADO')
+                }else{
+                    console.log('ERRRORRRRR')
+                }
+                    
+                console.log(res);
+                console.log(res.data);
+        })
+    }
+
     render() {
         return (
             <div className="singUp__AllContainer">
@@ -38,31 +74,35 @@ class singUp extends React.Component {
 
                 </div>
                 <div className="allContainer__rightForm">
-                    <img src={logoImage} className="rightForm__logo"/>
-                    <form className="rightForm__form">
+                    <img src={logoImage} className="rightForm__logo" />
+                    <form onSubmit={this.handleSubmit} className="rightForm__form">
                         <Input
                             icon={nameIcon}
                             label="Name"
                             type="text"
                             name="name"
+                            onChange={this.handleChange}
                         />
                         <Input
                             icon={emailIcon}
                             label="Email"
                             type="text"
                             name="email"
+                            onChange={this.handleChange}
                         />
                         <Input
                             icon={nickNameIcon}
                             label="Nickname"
                             type="text"
-                            name="Nickname"
+                            name="nickname"
+                            onChange={this.handleChange}
                         />
                         <Input
                             icon={passwordIcon}
                             label="Password"
                             type="password"
                             name="password"
+                            onChange={this.handleChange}
                         />
                         <div className="form__checkbox">
                             <input type="checkbox" name="check" />
@@ -77,7 +117,9 @@ class singUp extends React.Component {
                             <Link to="singIn">
                                 <a>Already have an account?</a>
                             </Link>
-                            <input type="submit" value="SING UP" />
+                            <Link to="confirmation/email" >
+                                <input type="submit" value="SING UP" />
+                            </Link>
                         </div>
                     </form>
                     <signUpForm />
