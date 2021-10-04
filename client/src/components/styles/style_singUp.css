@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.singUp__AllContainer {
+    display: flex;
+}
+
+.allContainer__leftMenu, .allContainer__rightForm {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------------------------Left Part------------------------------------------ */
+
+.allContainer__leftMenu {
+    width: 30%;
+    align-items: flex-end;
+    /* background-color: #018ABE; */
+    overflow: hidden;
+}
+
+.leftMenu__upPart {
+    height: 26.8vh;
+    width: 100%;
+    position: absolute;
+    background-color: #018ABE;
+    border-radius: 0 0 2vh 0;
+}
+
+.leftMenu__midlePart {
+    /* background-color: blueviolet; */
+    width: 100%;
+    height: 1000%;
+    transform: translateY(19.9vh);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.midlePart__select {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.midlePart__select .select__left {
+    width: 70%;
+    height: 30%;
+    position: absolute;
+    top: 5.5vh;
+    left: 0;
+    background-color: #018ABE;
+}
+
+.leftMenu__downPart {
+    background-color: #018ABE;
+    height: 66vh;
+    width: 100%;
+    position: absolute;
+    transform: translateY(34vh);
+    border-radius: 0 2vh 0 0;
+}
+
+/* -------------------------------------Right Part------------------------------------------ */
+
+.allContainer__rightForm {
+    width: 70%;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
+}
+
+.rightForm__logo{
+    height: 15vh;
+}
+
+.rightForm__form {
+    width: 100%;
+}
+
+.form__checkbox {
+    display: flex;
+    margin: 3vh 0 0 5vh;
+    padding-left: 3vh;
+    
+}
+
+.form__checkbox input {
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    
+    cursor: pointer;
+
+    margin-right: 1vw;
+}
+
+.form__checkbox p {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.8vh;
+    color: #c4c4c4;
+}
+
+.form__checkbox a {
+    text-decoration: none;
+    color: #018ABE;
+}
+
+.form__linkAndSumbitContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5vh 3vw;
+}
+
+.form__linkAndSumbitContainer a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2.5vh;
+    text-decoration: none;
+    color: #018ABE;
+    cursor: pointer; 
+    margin-left: 1vw;
+}
+
+.form__linkAndSumbitContainer input{
+    width: 15vw;
+    height: 6vh;
+    background-color: #018ABE;
+    border-color: transparent;
+    border-radius: 2vh;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 3vh;
+    text-decoration: none;
+    color: #fff;
+}
