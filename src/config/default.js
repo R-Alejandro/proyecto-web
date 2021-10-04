@@ -10,5 +10,8 @@ export default {
     MYSQL_USER: process.env.DATABASE_USERNAME,
     MYSQL_PASSWORD: process.env.DATABASE_PASSWORD,
     MYSQL_DATABASE: process.env.DATABASE_NAME,
-    PORT: process.env.PORT
+    PORT: process.env.PORT,
+    MAIL_PASS: process.env.MAIL_PASS,
+    MAIL_ACCOUNT: process.env.MAIL_ACCOUNT,
+    SALT_PASSWORD: process.env.SALT_PASSWORD,
 };

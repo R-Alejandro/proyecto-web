@@ -1,5 +1,6 @@
 import { Router } from "express";
 import pool from "../../services/mysqlDB/mysqlConn.js"
+
 const router = Router();
 
 router.get('/all', async (req, res) => {
@@ -14,5 +15,6 @@ router.get('/all', async (req, res) => {
         throw error;
     }
 });
+
 
 export default router;
