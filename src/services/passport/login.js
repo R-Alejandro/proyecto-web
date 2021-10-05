@@ -7,6 +7,7 @@ passport.serializeUser((user, done) => {
     done(null, user.email);
 });
 
+//req.session.passport.user
 passport.deserializeUser(async (email, done) => {
     const user = await User.findUser(email);
     done(null, user);
@@ -23,11 +24,14 @@ passport.use(new Strategy({
     if (!userToValidate){
         return done(null, false);
     }
-    if (!userToValidate.comparePassword(password)) {
+    console.log('compare', await userToValidate.comparePassword(password))
+    if (!await userToValidate.comparePassword(password)) {
         return done(null, false);
+    }else{
+        return done(null, userToValidate);
     }
     //true
-    done(null, userToValidate);
+    
 }));
 
 export default{

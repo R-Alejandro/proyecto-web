@@ -40,10 +40,9 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('local', {
-    successRedirect: 'http//:localhost:3000/singup', //route not define lch:3001/
-    failureRedirect: '/users/all',
-    passReqToCallback: false
-}));
+    successRedirect: '/users/session', //route for one user
+    failureRedirect: '/',
+    passReqToCallback: false}));
 
 router.get('/logout', (req, res) => {
 

@@ -16,5 +16,8 @@ router.get('/all', async (req, res) => {
     }
 });
 
+router.get('/session', (req, res) => {
+    res.status(200).json({usuario: req.user});
+});
 
 export default router;
