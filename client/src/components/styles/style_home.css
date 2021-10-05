@@ -1,0 +1,38 @@
+.home__content{
+    width: 100vw;
+    height: 100vh;
+}
+
+.home_dashboard__content{
+    width: 100%;
+    height: 90%;
+}
+
+.home_dashboard__content p{
+    margin: 0;
+
+    color: #018abe;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+
+    font-size: 6vh;
+
+    padding: 6vh 0 0 5vw;
+}
+
+.home_dashboard__content p span{
+    color: #02457A;
+
+    font-size: 10vh;
+}
+
+.home_dashboard__content img{
+    position: absolute;
+    bottom: 3vh;
+    right: 4vw;
+    height: 75%;
+    max-width: 80%;
+
+    z-index: -1;
+    /* width: 55%; */
+}
