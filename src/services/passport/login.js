@@ -27,11 +27,9 @@ passport.use(new Strategy({
     console.log('compare', await userToValidate.comparePassword(password))
     if (!await userToValidate.comparePassword(password)) {
         return done(null, false);
-    }else{
-        return done(null, userToValidate);
     }
     //true
-    
+    return done(null, userToValidate);
 }));
 
 export default{

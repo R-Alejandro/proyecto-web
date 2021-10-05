@@ -39,10 +39,15 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.post('/login', passport.authenticate('local', {
+/*
+, {
     successRedirect: '/users/session', //route for one user
     failureRedirect: '/',
-    passReqToCallback: false}));
+    passReqToCallback: true}
+*/
+router.post('/login', passport.authenticate('local'), (req, res) => {
+    res.json(req.session);
+});
 
 router.get('/logout', (req, res) => {
 
