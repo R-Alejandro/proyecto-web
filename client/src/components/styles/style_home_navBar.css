@@ -1,0 +1,35 @@
+.home_navbar__content {
+    background-color: #018abe;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10%;
+    padding: 0 3vw;
+}
+
+.home_navbar__Logo {
+    display: flex;
+    align-items: center;
+}
+
+.home_navbar__Logo p {
+    text-decoration: none;
+    margin: 0;
+
+    margin-left: 2vw;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 3vh;
+    line-height: 100%;
+    letter-spacing: 0.3vw;
+}
+
+.home_navbar__Logo img{
+    /* width: 5vw; */
+    height: 7vh;
+}
+
+.home_navbar__directionalButons {
+    display: flex;
+}
