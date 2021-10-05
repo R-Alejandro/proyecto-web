@@ -45,7 +45,16 @@ class signUp extends React.Component {
 
                 console.log(res);
                 console.log(res.data);
+                this.handleRedirect(res);
             })
+    }
+    //redireccionamiento temporal
+    handleRedirect = res => {
+        if (res.status === 201){
+            window.location.href = 'http://localhost:3000/confirmation/email';
+        }else{
+            console.log('ERROR AL REGISTRAR EL USUARIO')
+        }
     }
 
     render() {
@@ -117,9 +126,7 @@ class signUp extends React.Component {
                             <Link to="signIn">
                                 <a>Already have an account?</a>
                             </Link>
-                            <Link to="confirmation/email" >
-                                <input type="submit" value="SIGN UP" />
-                            </Link>
+                            <input type="submit" value="SING UP" />
                         </div>
                     </form>
                     <signUpForm />

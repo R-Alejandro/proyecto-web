@@ -13,6 +13,47 @@ import logoImage from './../images/LogoName.svg'
 
 
 class signIn extends React.Component {
+    state = {
+        email: '',
+        password: ''
+    }
+
+    handleChange = event => {
+        const { name, value } = event.target
+        this.setState({ [name]: value })
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+        const user = {
+            email: this.state.email,
+            password: this.state.password
+        };
+        console.log()
+        console.log('USEEEERRR', user)
+        axios.post(`http://localhost:3001/auth/login`, user)
+            .then(res => {
+                if (res.data) {
+                    console.log('INTENTO DE LOGEO')
+                } else {
+                    console.log('ERRROR LOGEO')
+                }
+
+                console.log(res);
+                //console.log(res.data);
+                this.handleRedirect(res);
+            })
+    }
+    //redireccionamiento temporal
+    handleRedirect = res => {
+        console.log('RES', res.data);
+        if (res.status === 200){
+            console.log('USUARIO LOGEADO')
+            //window.location.href = 'http://localhost:3000/confirmation/email';
+        }else{
+            console.log('ERROR AL LOGEAR USUARIO')
+        }
+    }
     render() {
         return (
             <div className="signIn__AllContainer">
@@ -41,29 +82,26 @@ class signIn extends React.Component {
                     <Link to="home">
                         <img src={logoImage} className="rightForm__logo" />
                     </Link>
-                    {/* <form onSubmit={this.handleSubmit} className="rightForm__form"> */}
-                    <form className="rightForm__form">
+                    <form onSubmit={this.handleSubmit} className="rightForm__form">
                         <Input
                             icon={emailIcon}
                             label="Email"
                             type="text"
                             name="email"
-                            // onChange={this.handleChange}
+                            onChange={this.handleChange}
                         />
                         <Input
                             icon={passwordIcon}
                             label="Password"
                             type="password"
                             name="password"
-                        // onChange={this.handleChange}
+                            onChange={this.handleChange}
                         />
                         <div className="form__linkAndSumbitContainer">
                             <Link to="signIn">
                                 <a>Forgot Password?</a>
                             </Link>
-                            <Link to="confirmation/email" >
-                                <input type="submit" value="SIGN IN" />
-                            </Link>
+                            <input type="submit" value="SIGN IN" />
                         </div>
                     </form>
                 </div>

@@ -10,6 +10,7 @@ class AuthService{
     SignUp = async (data, url) => {
         try {
             //10 bytes for salt password
+            if (data.password.length <= 0) return false;
             const hashedPassword = await bcrypt.hash(data.password, 10);
 
             const userToCreate = new User(data.email, data.name, data.nickname, hashedPassword);

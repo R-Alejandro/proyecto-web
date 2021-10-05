@@ -24,9 +24,9 @@ app.engine('.hbs', exphbs({
 }));
 app.set('view engine', '.hbs');
 const corsOptions ={
-    origin:'*', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200,
+    origin: '*', 
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
 }
 
 app.use(express.json());
