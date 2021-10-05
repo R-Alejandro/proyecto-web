@@ -15,7 +15,7 @@ passport.deserializeUser(async (email, done) => {
 
 passport.use(new Strategy({
     usernameField: 'email',
-    passwordField: 'password',
+    passwordField: 'password', 
     passReqToCallback: true
 }, async (req, email, password, done)=>{
     //here the user model
