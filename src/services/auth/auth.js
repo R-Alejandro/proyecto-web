@@ -1,7 +1,6 @@
 //import models for complete the class
 import User from "../../api/users/model.js";
 import { token, mailer } from "../../middleware/index.js";
-import bcrypt from "bcrypt";
 
 class AuthService{
     //instance here the models necesary
@@ -11,9 +10,9 @@ class AuthService{
         try {
             //10 bytes for salt password
             if (data.password.length <= 0) return false;
-            const hashedPassword = await bcrypt.hash(data.password, 10);
-
-            const userToCreate = new User(data.email, data.name, data.nickname, hashedPassword);
+             
+            const userToCreate = new User(data.email, data.name, data.nickname);
+            await userToCreate.hashPassword(data.password);
             const status = await userToCreate.insertNewUser(); 
 
             const userToken = token.generateConfirmationToken(data.email);

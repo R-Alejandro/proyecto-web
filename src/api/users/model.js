@@ -57,4 +57,8 @@ export default class User {
     comparePassword = async password => {
         return await bcrypt.compare(password, this.password);
     } 
+
+    hashPassword = async password =>{
+        this.password = await bcrypt.hash(password, 10);
+    }
 }

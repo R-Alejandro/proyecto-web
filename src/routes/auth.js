@@ -45,8 +45,17 @@ router.get('/login', (req, res) => {
     failureRedirect: '/',
     passReqToCallback: true}
 */
-router.post('/login', passport.authenticate('local'), (req, res) => {
-    res.json(req.session);
+router.post('/login',  (req, res, next) => {
+    passport.authenticate('local', (err, user, info) => {
+        if(err) throw err;
+        if(!user) res.send(false);
+        else{
+            req.logIn(user, err => {
+                if(err) throw err;
+                res.send(user);
+            })
+        }
+    })(req, res, next);
 });
 
 router.get('/logout', (req, res) => {

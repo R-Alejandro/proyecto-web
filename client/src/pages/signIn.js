@@ -10,7 +10,9 @@ import './../components/styles/style_signIn.css'
 import emailIcon from './../images/signUp_email.svg'
 import passwordIcon from './../images/signUp_password.svg'
 import logoImage from './../images/LogoName.svg'
+import Cookies from 'universal-cookie'
 
+const cookies = new Cookies()
 
 class signIn extends React.Component {
     state = {
@@ -47,12 +49,9 @@ class signIn extends React.Component {
     //redireccionamiento temporal
     handleRedirect = res => {
         console.log('RES', res.data);
-        if (res.status === 200){
-            console.log('USUARIO LOGEADO')
-            //window.location.href = 'http://localhost:3000/confirmation/email';
-        }else{
-            console.log('ERROR AL LOGEAR USUARIO')
-        }
+            //here set the cookies
+            cookies.set('email', res.data.email)
+            window.location.href = 'http://localhost:3000/confirmation/email';
     }
     render() {
         return (

@@ -16,4 +16,8 @@ router.get('/all', async (req, res) => {
     }
 });
 
+router.get('/one', (req, res) => {
+    res.send(req.user); //send user or session if there is an auth user, and deserialize user,
+    //so.. this return name email nickname and passw
+});
 export default router;
