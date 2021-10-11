@@ -6,7 +6,7 @@ import './../components/styles/style_home.css'
 
 const home = () => (
     <div className="home__content">
-        <Home_navBar/>
+        <Home_navBar/>        
         
         <div className="home_dashboard__content">
             <p>

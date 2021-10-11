@@ -51,7 +51,8 @@ class signIn extends React.Component {
         console.log('RES', res.data);
             //here set the cookies
             cookies.set('email', res.data.email)
-            window.location.href = 'http://localhost:3000/confirmation/email';
+            cookies.set('nickname', res.data.nickname)
+            window.location.href = 'http://localhost:3000/home';
     }
     render() {
         return (
