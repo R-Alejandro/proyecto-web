@@ -5,6 +5,7 @@ import signIn from "../pages/signIn"
 import signUp from "../pages/signUp"
 import NotFound from '../pages/notFound'
 import ConfirmationEmail from "../pages/confirmationEmail"
+import homeReal from "../pages/homeReal"
 import './styles/fonts.css'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/signin" component={signIn} />
         <Route exact path="/signup" component={signUp} />
+        <Route exact path="/homeReal" component={homeReal} />
         <Route exact path="/confirmation/email" component={ConfirmationEmail} />
         <Route component={NotFound}/>
       </Switch>
