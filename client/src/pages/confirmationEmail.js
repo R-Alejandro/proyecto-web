@@ -13,10 +13,7 @@ class ConfirmationEmail extends React.Component {
     render() {
         return (
             <div>
-                confirmacion email 
-                <div>
-                    {cookies.get('email')}
-                </div>                
+                confirmacion email              
             </div>
 
         )

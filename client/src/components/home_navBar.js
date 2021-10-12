@@ -4,7 +4,7 @@ import DirectionalButton from './directionalButton'
 import Logo from './../images/home_navbar_logo.svg'
 
 import './styles/style_home_navBar.css'
-import Cookies from "universal-cookie";
+import Cookies from "universal-cookie"
 const cookies = new Cookies()
 
 const home_navBar = () => (
@@ -14,21 +14,22 @@ const home_navBar = () => (
             <p>Fire Dashboard</p>
         </div>
         {
-            (cookies.get('email'))
-            ? <div> <h1> {cookies.get('nickname')} </h1> </div>
-            : <div className="home_navbar__directionalButons">
-            <DirectionalButton
-                layer="SIGN IN"
-                route="/signin"
-            />
-            <DirectionalButton
-                layer="SIGN UP"
-                route="/signup"
-            />
-        </div>
-
+            (!cookies.get('email')) ?
+            <div className="home_navbar__directionalButons">
+                <DirectionalButton
+                    layer="SIGN IN"
+                    route="/signin"
+                />
+                <DirectionalButton
+                    layer="SIGN UP"
+                    route="/signup"
+                />
+            </div>
+            : <div> <h2>{cookies.get('nickname')} </h2></div>
         }
-        
+
+
+
     </div>
 )
 
