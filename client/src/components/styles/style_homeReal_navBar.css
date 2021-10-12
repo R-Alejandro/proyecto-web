@@ -35,7 +35,7 @@
     
 }
 
-.home_navbar__directionalButons input{
+.home_navbar__directionalButons button{
     width: 12vw;
     height: 5vh;
     /* background-color: #018ABE; */

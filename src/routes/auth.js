@@ -59,7 +59,8 @@ router.post('/login',  (req, res, next) => {
 });
 
 router.get('/logout', (req, res) => {
-
+    req.logout();
+    res.redirect('/users/one');
 });
 
 export default router;
