@@ -21,7 +21,7 @@ export default class User {
         const data = this.dataInterface();
         data['usr_auth'] = false;
         try {
-            const [result] = await pool.query(`INSERT INTO User SET ?`, [data]);
+            const [result] = await pool.query(`INSERT INTO user SET ?`, [data]);
             return result.affectedRows == 1 ? true : false;
         } catch (error) {
             throw error;
@@ -30,9 +30,9 @@ export default class User {
 
     changeAuth = async () => {
         try {           
-            const [rows, fields] = await pool.query("SELECT `usr_auth` FROM `User` WHERE `usr_email` = ?", [this.email]);
+            const [rows, fields] = await pool.query("SELECT `usr_auth` FROM `user` WHERE `usr_email` = ?", [this.email]);
             if (rows[0].usr_auth == 0){
-                await pool.query("UPDATE `User` SET `usr_auth` = ? WHERE `usr_email` = ?", [true, this.email]);
+                await pool.query("UPDATE `user` SET `usr_auth` = ? WHERE `usr_email` = ?", [true, this.email]);
                 return "Gracias por verificar la cuenta";
             }else{
                 return "Tu cuenta ya esta verificada, inicia sesion";
@@ -45,7 +45,7 @@ export default class User {
 
     static findUser = async email => {
         try {
-            const [rows, fields] = await pool.query("SELECT * FROM `User` WHERE `usr_email` = ?", [email]);
+            const [rows, fields] = await pool.query("SELECT * FROM `user` WHERE `usr_email` = ?", [email]);
             return new User(rows[0].usr_email,
                 rows[0].usr_name,
                 rows[0].usr_nickname,
