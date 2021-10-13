@@ -1,0 +1,18 @@
+.directionalButton_container{
+    width: 12vw;
+    height: 5vh;
+    /* background-color: #018ABE; */
+    border-radius: 2vh;
+    border-color: white;
+    border-width: 0.2vh;
+    border-style: solid;
+
+    margin-left: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}

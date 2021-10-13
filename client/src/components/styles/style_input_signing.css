@@ -1,0 +1,56 @@
+.contentInput__input {
+    width: 100%;
+    /* background-color: chartreuse; */
+    display: flex;
+    margin: 4vh 0 1vh 0;
+    padding: 0 3vh;
+
+}
+
+.contentInput__bar {
+    height: 0.2vh;
+    background-color: #c4c4c4;
+    margin: 0;
+    border: 0 none;
+    border-radius: 25vh;
+}
+
+.contentInput__input input{
+    width: 90%;
+    border: none;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;   
+    font-size: 3vh;
+    text-decoration-color: #c4c4c4;
+    padding-left: 1vh;
+}
+
+.contentInput__input input::placeholder{
+    color: #c4c4c4;
+}
+
+.contentInput__input input:focus{
+    outline: none;
+    border:none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    /*sirve para que a la hora de seleccionar una opcion guardada no muestre color de fondo y el color de la letra sea parecida a la anterior  */
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.contentInput__input input:-internal-autofill-selected{
+    background-color: white !important;
+}
+
+.contentInput__input img{
+    /* width: 3.5vw; */
+    height: 5vh;
+}
+
+.signing__contentInput{
+    padding: 0 3vw;
+
+}

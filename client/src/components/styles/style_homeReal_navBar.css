@@ -1,0 +1,57 @@
+.home_navbar__content {
+    background-color: #018abe;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    padding: 0 3vw;
+}
+
+.home_navbar__Logo {
+    display: flex;
+    align-items: center;
+}
+
+.home_navbar__Logo p {
+    text-decoration: none;
+    margin: 0;
+
+    margin-left: 2vw;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 3vh;
+    line-height: 100%;
+    letter-spacing: 0.3vw;
+}
+
+.home_navbar__Logo img{
+    /* width: 5vw; */
+    height: 7vh;
+}
+
+.home_navbar__directionalButons {
+    display: flex;
+    
+}
+
+.home_navbar__directionalButons button{
+    width: 12vw;
+    height: 5vh;
+    /* background-color: #018ABE; */
+    border-radius: 2vh;
+    border-color: white;
+    border-width: 0.2vh;
+    border-style: solid;
+
+    margin-left: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+
+    background-color: transparent;
+}

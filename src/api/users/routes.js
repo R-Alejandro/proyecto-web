@@ -1,5 +1,6 @@
 import { Router } from "express";
 import pool from "../../services/mysqlDB/mysqlConn.js"
+
 const router = Router();
 
 router.get('/all', async (req, res) => {
@@ -15,4 +16,12 @@ router.get('/all', async (req, res) => {
     }
 });
 
+router.get('/one', (req, res) => {
+    if(!req.user){
+        res.send('Que no hay usuario dice');
+    } else{
+        res.send(req.user); //send user or session if there is an auth user, and deserialize user,
+    //so.. this return name email nickname and passw
+    }
+});
 export default router;

@@ -1,0 +1,59 @@
+.signIn__AllContainer {
+    display: flex;
+    
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.signIn__allContainer__leftMenu {
+    width: 30%;
+    height: 100vh;
+    align-items: flex-end;
+    /* background-color: #018ABE; */
+    overflow: hidden;
+    /* background-color: brown; */
+}
+
+.signIn__leftMenu__upPart {
+    height: 20vh;
+    width: 30%;
+    position: absolute;
+    background-color: #018ABE;
+    border-radius: 0 0 2vh 0;
+}
+
+.signIn__leftMenu__midlePart {
+    /* background-color: blueviolet; */
+    width: 100%;
+    height: 100%;
+    transform: translateY(19.9vh);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.signIn__midlePart__select {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.signIn__midlePart__select .signIn__select__left {
+    width: 70%;
+    height: 30%;
+    position: absolute;
+    left: 0;
+    /* background-color: #018ABE; */
+    background-color: #018ABE;
+}
+
+.signIn__leftMenu__downPart {
+    background-color: #018ABE;
+    height: 72.8%;
+    width: 30%;
+    position: absolute;
+    top: 27.1vh;
+    z-index: -2;
+    /* transform: translateY(34vh); */
+    border-radius: 0 2vh 0 0;
+}

@@ -1,0 +1,31 @@
+.signDirection__a_white, .signDirection__a_black{
+    width: 50%;
+    min-width: 15vw;
+    height: 7.3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    /* background-color: black; */
+}
+
+.signDirection__a_white a, .signDirection__a_black a{
+    text-decoration: none;
+    font-family: 'Yaldevi', sans-serif;
+    letter-spacing: 0.5vw;
+    font-size: 3vh;
+}
+
+.signDirection__a_white a{
+    color:white;
+}
+
+.signDirection__a_black{
+    background-color: white;
+    border-radius: 2vh 0 0 2vh;
+}
+
+.signDirection__a_black a{
+    color:black;
+}
