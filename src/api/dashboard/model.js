@@ -1,14 +1,10 @@
 import pool from "../../services/mysqlDB/mysqlConn.js";
 
 class Dashboard {
-    constructor(email = '', name = '') {
-        this.email = email;
-        this.name = name;
-    }
 
-    insertNewDashboard = async () => {
-        const text = "INSERT INTO dashboard(usr_email, dsb_name) SET ?";
-        const value = [this.email, this.name];
+    insertNewDashboard = async (id, email, name) => {
+        const text = "INSERT INTO dashboard(dsb_uuid, usr_email, dsb_name) SET ?";
+        const value = [id, email, name];
 
         try {
             await pool.query(text, value);

@@ -1,10 +1,13 @@
 import pool from "../../services/mysqlDB/mysqlConn.js"
 import dashboardInstance from "./model.js"
+import {v4 as uuidv4} from "uuid";
 
 const newDashboard = async (req, res) => {
    
+    const newUuid = uuidv4();
+
     try {
-        const result = await dashboardInstance.insertNewDashboard(req.user.email, req.body.name);
+        const result = await dashboardInstance.insertNewDashboard(newUuid, req.user.email, req.body.name);
         console.log(result);
         res.json({
             result,
