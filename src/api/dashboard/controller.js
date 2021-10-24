@@ -53,7 +53,7 @@ const getDashboards = async (req, res) => {
 const showDashboard = async (req, res) => {
     
     const text = "SELECT * FROM dashboard WHERE dsb_uuid = ?";
-    const values = [req.params];
+    const values = [req.params.uuid];
 
     try {
         const [dashboard] = await pool.query(text, values);
