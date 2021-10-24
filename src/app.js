@@ -7,6 +7,7 @@ import session from "express-session";
 import path from "path";
 import { fileURLToPath } from "url";
 import exphbs from "express-handlebars";
+import morgan from "morgan";
 import cors from "cors";
 
 const app = express();
@@ -32,6 +33,7 @@ const corsOptions ={
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors(corsOptions)) // Use this after the variable declaration
+app.use(morgan('dev'));
 app.use(session({
     secret: config.SALT_PASSWORD,
     resave: true,
