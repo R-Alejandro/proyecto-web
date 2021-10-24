@@ -1,5 +1,5 @@
-import pool from "../../services/mysqlDB/mysqlConn.js"
-import dashboardInstance from "./model.js"
+import pool from "../../services/mysqlDB/mysqlConn.js";
+import dashboardInstance from "./model.js";
 import {v4 as uuidv4} from "uuid";
 
 const newDashboard = async (req, res) => {
@@ -8,13 +8,15 @@ const newDashboard = async (req, res) => {
 
     try {
         const result = await dashboardInstance.insertNewDashboard(newUuid, req.body.email, req.body.name);
-        console.log(result);
-        res.json({
+        res.status(201).json({
             result,
         });
 
     } catch (error) {
-        throw error;
+        console.log(error); // log about the error
+        res.status(400).json({
+            newDashboardsError: "Hubo error al crear el tablero, intente más tarde.",
+        });
     }
 }
 
@@ -22,14 +24,15 @@ const removeDashboard = async (req, res) => {
     
     try {
         const result = await dashboardInstance.deleteDashboard(req.params.uuid, req.user.email);
-        console.log(result);
-
-        res.json({
+        res.status(200).json({
             result,
         });
 
     } catch (error) {
-        throw error;
+        console.log(error);
+        res.status(400).json({
+            deleteDashboardsError: "Hubo error al elimnar el tablero, intente más tarde.",
+        });
     }
 }
 
@@ -40,12 +43,15 @@ const getDashboards = async (req, res) => {
     
     try {
         const [dashboards] = await pool.query(text, values);
-        res.json({
-            dashboards
+        res.status(200).json({
+            dashboards,
         });
 
     } catch (error) {
-        throw error;
+        console.log(error);
+        res.status(400).json({
+            getDashboardsError: "No se pudo obtener los tableros.",
+        });
     }
 
 }
@@ -57,13 +63,15 @@ const showDashboard = async (req, res) => {
 
     try {
         const [dashboard] = await pool.query(text, values);
-        
-        res.json({
-            dashboard
-        });
+        res.status(200).json({
+            dashboard,
+        });  
 
     } catch (error) {
-        throw error;
+        console.log(error);
+        res.status(400).json({
+            showDashboardError: "No fue posible cargar el tablero.",
+        });
     }
 }
 
