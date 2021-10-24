@@ -18,7 +18,7 @@ const newDashboard = async (req, res) => {
 const removeDashboard = async (req, res) => {
     
     try {
-        const result = await dashboardInstance.deleteDashboard(req.params, req.user.email);
+        const result = await dashboardInstance.deleteDashboard(req.params.uuid, req.user.email);
         console.log(result);
 
         res.json({
