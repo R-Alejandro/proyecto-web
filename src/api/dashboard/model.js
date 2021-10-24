@@ -3,11 +3,15 @@ import pool from "../../services/mysqlDB/mysqlConn.js";
 class Dashboard {
 
     insertNewDashboard = async (id, email, name) => {
-        const text = "INSERT INTO dashboard(dsb_uuid, usr_email, dsb_name) SET ?";
-        const value = [id, email, name];
+        const text = `INSERT INTO dashboard SET ?`;
+        const value = {
+            "dsb_uuid": id, 
+            "usr_email":email, 
+            "dsb_name": name
+        }
 
         try {
-            await pool.query(text, value);
+            await pool.query(text, [value]);
             return "Nuevo tablero creado";
         } catch (error) {
             throw error;
