@@ -86,7 +86,7 @@ class signIn extends React.Component {
                     <div className="signIn__leftMenu__downPart"></div>
                 </div>
                 <div className="allContainer__rightForm signIn__allContainer__rightForm">
-                    <Link to="home">
+                    <Link to="/">
                         <img src={logoImage} className="rightForm__logo" />
                     </Link>
                     <form onSubmit={this.handleSubmit} className="rightForm__form">

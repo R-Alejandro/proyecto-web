@@ -81,7 +81,7 @@ class signUp extends React.Component {
 
                 </div>
                 <div className="allContainer__rightForm">
-                    <Link to="home">
+                    <Link to="/">
                         <img src={logoImage} className="rightForm__logo" />
                     </Link>
                     <form onSubmit={this.handleSubmit} className="rightForm__form">

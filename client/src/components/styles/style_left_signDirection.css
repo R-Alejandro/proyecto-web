@@ -13,6 +13,7 @@
 .signDirection__a_white a, .signDirection__a_black a{
     text-decoration: none;
     font-family: 'Yaldevi', sans-serif;
+    font-weight: bold;
     letter-spacing: 0.5vw;
     font-size: 3vh;
 }
