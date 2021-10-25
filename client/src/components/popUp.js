@@ -8,8 +8,8 @@ import "../components/styles/style_popUp.css"
 
 class popUp extends React.Component {
     state={
-        // open: true,
-        open: false,
+        open: true,
+        // open: false,
     }
 
     handleOpenModal = () =>{
@@ -30,7 +30,7 @@ class popUp extends React.Component {
                 </button>
                     <Modal isOpen={this.state.open}>
                         <ModalBody>
-                            <button onClick={this.handleOpenModal}>
+                            <button className ="popUp_modal__closeIconContainer" onClick={this.handleOpenModal}>
                                 <img src={Close}/>
                             </button>
                             <h1>Create New Dashboard</h1>

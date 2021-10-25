@@ -96,15 +96,31 @@
     display:flex !important;
     justify-content: center;
     align-items: center;
+    
+}
+
+.modal-body{
+    padding: 0;
 }
 
 .modal-dialog{
-    height: 80%;
+    height: 70%;
+    width: 70vw;
+    max-width: none;
     margin: 0;
-    background-color: blue;
 }
 
 .modal-content{
-    /* height: 80%; */
-    background-color: aqua;
+    height: 100%;
+    border-radius: 0;
+    border:none;
+}
+
+.popUp_modal__closeIconContainer{
+    background-color: transparent;
+    border:none;
+
+    position: absolute;
+    right: -0.5vw;
+    top: 0vh;
 }
