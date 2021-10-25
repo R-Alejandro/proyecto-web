@@ -7,7 +7,7 @@ const newDashboard = async (req, res) => {
     const newUuid = uuidv4();
 
     try {
-        const result = await dashboardInstance.insertNewDashboard(newUuid, req.user.email, req.body.name);
+        const result = await dashboardInstance.insertNewDashboard(newUuid, req.user.email, req.body.name, req.body.description);
         res.status(201).json({
             result,
         });
