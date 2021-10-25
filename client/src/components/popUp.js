@@ -31,9 +31,9 @@ class popUp extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         const dashboard = {
-            dashboardName: this.state.name,
-            dashboardLabels: this.state.labels,
-            dashboardDesc: this.state.description,
+            name: this.state.name,
+            labels: this.state.labels,
+            description: this.state.description,
             email: cookies.get('email')
         };
 

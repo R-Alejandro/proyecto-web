@@ -42,11 +42,6 @@ class home extends React.Component {
                             description = {e.dsb_description}
                         />
                     )}
-                    <Dashboard 
-                        name="Table Name"
-                        tableID="TableID"
-                        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at tincidunt eros, nec pulvinar nisi. Nam eu ligula dapibus felis aliquam fringilla. Nam non est porta, pretium risus sed, rhoncus arcu. Nunc congue et tortor in maximus. Praesent eget condimentum nibh. Phasellus quis arcu quis felis porta fermentum nec sed nisi. Proin auctor, nisi nec dictum tincidunt, odio mi ullamcorper augue, eget auctor arcu mi non risus. Nam consectetur sit amet sapien nec porta. Nulla tincidunt, turpis nec eleifend fringilla, enim est mattis enim, nec efficitur risus dolor at mi. Suspendisse elementum ornare auctor."
-                    />
                     
                 </div>
 
