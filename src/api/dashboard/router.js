@@ -5,9 +5,13 @@ import { Router } from "express";
 const check = session.checkSession;
 const router = Router();
 
-router.post('/new', newDashboard);
-router.get('/', check ,getDashboards);
+//provisional
+router.get('/new', (req, res) => {
+    res.render('createDashboard')
+})
+router.post('/new', check, newDashboard);
+router.get('/', check , getDashboards);
 router.get('/:uuid', check, showDashboard);
-router.get('/delete/:uuid', removeDashboard);
+router.get('/delete/:uuid', check, removeDashboard);
 
 export default router;
