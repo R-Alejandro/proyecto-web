@@ -10,3 +10,20 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3001/users/all
+
+### 
+POST http://localhost:3001/dashboards/new
+Content-Type: application/json
+
+{
+    "email": "AlejandroRHiguera@gmail.com",
+    "name": "tablero 1"
+}
+
+###
+GET http://localhost:3001/dashboards
+Content-Type: application/json
+
+{
+    "email": "AlejandroRHiguera@gmail.com"
+}
