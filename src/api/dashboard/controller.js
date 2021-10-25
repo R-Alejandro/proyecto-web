@@ -7,7 +7,7 @@ const newDashboard = async (req, res) => {
     const newUuid = uuidv4();
 
     try {
-        const result = await dashboardInstance.insertNewDashboard(newUuid, req.user.email, req.body.name, req.body.description);
+        const result = await dashboardInstance.insertNewDashboard(newUuid, req.body.email, req.body.name, req.body.description);
         res.status(201).json({
             result,
         });
@@ -39,7 +39,8 @@ const removeDashboard = async (req, res) => {
 const getDashboards = async (req, res) => {
 
     const text = "SELECT * FROM dashboard WHERE usr_email = ?";
-    const values = [req.user.email];
+    const values = [req.params.email];
+    console.log("params", req.params)
     
     try {
         const [dashboards] = await pool.query(text, values);

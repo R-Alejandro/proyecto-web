@@ -19,3 +19,11 @@ Content-Type: application/json
     "email": "AlejandroRHiguera@gmail.com",
     "name": "tablero 1"
 }
+
+###
+GET http://localhost:3001/dashboards
+Content-Type: application/json
+
+{
+    "email": "AlejandroRHiguera@gmail.com"
+}

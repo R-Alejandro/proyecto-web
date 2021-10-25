@@ -14,9 +14,9 @@ class popUp extends React.Component {
     state={
         // open: true,
         open: false,
-        dashboardName: '',
-        dashboardLabels: '',
-        dashboardDesc: ''
+        name: '',
+        labels: '',
+        description: ''
     }
 
     handleOpenModal = () =>{
@@ -31,9 +31,9 @@ class popUp extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         const dashboard = {
-            dashboardName: this.state.dashboardName,
-            dashboardLabels: this.state.dashboardLabels,
-            dashboardDesc: this.state.dashboardDesc,
+            dashboardName: this.state.name,
+            dashboardLabels: this.state.labels,
+            dashboardDesc: this.state.description,
             email: cookies.get('email')
         };
 
@@ -71,9 +71,9 @@ class popUp extends React.Component {
                             </button>
                             <h1>Create New Dashboard</h1>
                             <form onSubmit={this.handleSubmit}>
-                                <input type="text" name="dashboardName" placeholder="Dashboard Name" onChange={this.handleChange} />
-                                <input type="text" name="dashboardLabels" placeholder="label" onChange={this.handleChange} />
-                                <input type="text" name="dashboardDesc" placeholder="Description" onChange={this.handleChange} />
+                                <input type="text" name="name" placeholder="Dashboard Name" onChange={this.handleChange} />
+                                <input type="text" name="labels" placeholder="label" onChange={this.handleChange} />
+                                <input type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 {/* <select multiple="multiple" name="labels">
                                     <option>sports</option>
                                     <option>music</option>
