@@ -35,7 +35,9 @@ class home extends React.Component {
                 <PopUp/>
 
                 <div className="home__dashboardsContainer">
-                    {this.state.data.map((e) => 
+                    {this.state.data.length == 0?
+                    <center><div> <h2>Aun no tienes tableros creados, Crea uno :D</h2></div></center>:
+                    this.state.data.map((e) => 
                         <Dashboard 
                             name={e.dsb_name}
                             tableID={e.dsb_uuid}
