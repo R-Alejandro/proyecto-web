@@ -57,7 +57,7 @@ class signIn extends React.Component {
         } else{
             cookies.set('email', res.data.email)
             cookies.set('nickname', res.data.nickname)
-            window.location.href = 'http://localhost:3000/homeReal';
+            window.location.href = 'http://localhost:3000/home';
         }
         
     }
