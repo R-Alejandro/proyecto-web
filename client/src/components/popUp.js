@@ -12,8 +12,8 @@ const cookies = new Cookies()
 
 class popUp extends React.Component {
     state = {
-        open: true,
-        // open: false,
+        //open: true,
+        open: false,
         name: '',
         labels: '',
         description: ''
@@ -43,6 +43,7 @@ class popUp extends React.Component {
                 if (res.data) {
                     console.log('TABLERO CREADO')
                     this.handleOpenModal()
+                    window.location.href = 'http://localhost:3000/home';
                 } else {
                     console.log('ERRRORRRRR')
                 }

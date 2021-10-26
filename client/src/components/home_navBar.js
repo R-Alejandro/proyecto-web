@@ -21,10 +21,10 @@ class home_navBar extends React.Component {
     componentDidMount() {
 
         // --------------------------------------------------------------Descomentar esto al subir
-        // if(!this.props.cookie.get('email')){
-        //     window.location.href = 'http://localhost:3000/signin';
-        //     alert('No se ha iniciado sesion')
-        // }
+        if(!this.props.cookie.get('email')){
+            window.location.href = 'http://localhost:3000/signin';
+            alert('No se ha iniciado sesion')
+        }
     }
 
     logoutHandler = () => {
