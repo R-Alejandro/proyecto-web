@@ -8,7 +8,7 @@ const notFound = () => (
         <div className="content__bg"></div>
         <div>
             <p>Page not found, please click  &nbsp;
-            <Link to="Home">
+            <Link to="/">
                 <a>
                     HERE
                 </a>

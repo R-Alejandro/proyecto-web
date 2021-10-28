@@ -1,11 +1,11 @@
 import React from "react"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
-import Home from "../pages/home"
+import landingPage from "../pages/landingPage"
 import signIn from "../pages/signIn"
 import signUp from "../pages/signUp"
 import NotFound from '../pages/notFound'
-import ConfirmationEmail from "../pages/confirmationEmail"
-import homeReal from "../pages/homeReal"
+import confirmationEmail from "../pages/confirmationEmail"
+import home from "../pages/home"
 import './styles/fonts.css'
 
 
@@ -13,11 +13,11 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={landingPage} />
         <Route exact path="/signin" component={signIn} />
         <Route exact path="/signup" component={signUp} />
-        <Route exact path="/homeReal" component={homeReal} />
-        <Route exact path="/confirmation/email" component={ConfirmationEmail} />
+        <Route exact path="/home" component={home} />
+        <Route exact path="/confirmation/email" component={confirmationEmail} />
         <Route component={NotFound}/>
       </Switch>
     </BrowserRouter>
