@@ -12,7 +12,7 @@ const cookies = new Cookies()
 
 class popUp extends React.Component {
     state = {
-        //open: true,
+        //open: true, del
         open: false,
         name: '',
         labels: '',
