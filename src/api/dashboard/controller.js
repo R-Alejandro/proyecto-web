@@ -25,7 +25,7 @@ const newDashboard = async (req, res) => {
 const removeDashboard = async (req, res) => {
     
     try {
-        const result = await dashboardInstance.deleteDashboard(req.params.uuid, req.user.email);
+        const result = await dashboardInstance.deleteDashboard(req.params.uuid, req.body.email);
         res.status(200).json({
             result,
         });
@@ -40,12 +40,16 @@ const removeDashboard = async (req, res) => {
 
 const getDashboards = async (req, res) => {
 
-    const text = "SELECT * FROM dashboard WHERE usr_email = ?";
+    const text = `SELECT d.dsb_uuid, d.usr_email, d.dsb_name, d.dsb_description, dxl.lbl_id 
+                  FROM dashboard d 
+                  INNER JOIN dashboard_x_label dxl ON d.dsb_uuid = dxl.dsb_uuid 
+                  WHERE d.usr_email = ?`;
+
     const values = [req.params.email];
-    console.log("params", req.params)
     
     try {
         const [dashboards] = await pool.query(text, values);
+
         res.status(200).json({
             dashboards,
         });
@@ -61,7 +65,11 @@ const getDashboards = async (req, res) => {
 
 const showDashboard = async (req, res) => {
     
-    const text = "SELECT * FROM dashboard WHERE dsb_uuid = ?";
+    const text = `SELECT d.dsb_uuid, d.usr_email, d.dsb_name, d.dsb_description, dxl.lbl_id 
+                  FROM dashboard d 
+                  INNER JOIN dashboard_x_label dxl ON d.dsb_uuid = dxl.dsb_uuid 
+                  WHERE d.dsb_uuid = ?`;
+                  
     const values = [req.params.uuid];
 
     try {

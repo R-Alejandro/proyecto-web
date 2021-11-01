@@ -11,7 +11,7 @@ router.get('/new', (req, res) => {
 })
 router.post('/new', check, newDashboard);
 router.get('/get/:email', getDashboards);
-router.get('/:uuid', check, showDashboard);
-router.get('/delete/:uuid', check, removeDashboard);
+router.get('/:uuid', showDashboard);
+router.get('/delete/:uuid', removeDashboard);
 
 export default router;
