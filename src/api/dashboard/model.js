@@ -19,8 +19,27 @@ class Dashboard {
         }
     }
 
+    insertLabel = async (dashboardId, labelId) => {
+        const text = `INSERT INTO dashboard_x_label SET ?`;
+        const values = {
+            "dsb_uuid": dashboardId,
+            //"lbl_id": labelId,
+        }
+
+        try {
+            for (let i = 0; i < labelId.length; i++) {
+                values.lbl_id = labelId[i];
+                await pool.query(text, [values]);
+            }
+            return "Etiquetas añadidas";
+        } catch (error) {
+            throw error;
+        }
+    }
+
     deleteDashboard = async (uuid, email) => {
         const text = "DELETE FROM dashboard WHERE dsb_uuid = ? AND usr_email = ?";
+
         const value = [uuid, email];
 
         try {

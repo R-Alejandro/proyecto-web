@@ -16,7 +16,7 @@ class popUp extends React.Component {
         open: true,
         // open: false,
         name: '',
-        labels: '',
+        labels: [],
         description: ''
     }
 
@@ -81,51 +81,52 @@ class popUp extends React.Component {
                                 <label className="inputContainer__Label">Labels</label><br />
                                 <div className="inputContainer__tagsContainer">
                                     <Tag
-                                        name="Sports"
+                                        label="Sports"
                                         value="1"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Music"
+                                        label="Music"
                                         value="2"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Education"
+                                        label="Education"
                                         value="3"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Design"
+                                        label="Design"
                                         value="4"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Programming"
+                                        label="Programming"
                                         value="5"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Maths"
+                                        label="Maths"
                                         value="6"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Science"
+                                        label="Science"
                                         value="7"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Biology"
+                                        label="Biology"
                                         value="8"
                                         onChange="onChange"
                                     />
                                     <Tag
-                                        name="Technology"
+                                        label="Technology"
                                         value="9"
                                         onChange="onChange"
                                     />
                                 </div>
+
                                 <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
                             </div>

@@ -12,17 +12,17 @@ class home extends React.Component {
 
     state = {
         data: []
-    }
-    componentDidMount() {
+    } 
+    componentDidMount(){
         const email = cookies.get('email');
-
-        axios.get(`http://localhost:3001/dashboards/${email}`)
-            .then(res => {
-                this.setState({
-                    data: res.data.dashboards
-                })
-                console.log(res.data.dashboards)
+        
+        axios.get(`http://localhost:3001/dashboards/get/${email}`)
+        .then(res => {
+            this.setState({
+                data: res.data.dashboards
             })
+            console.log(res.data.dashboards)
+        })
     }
 
     render() {
@@ -32,26 +32,20 @@ class home extends React.Component {
                     name={cookies.get('nickname')}
                     cookie={cookies}
                 />
-                <PopUp />
+                <PopUp/>
 
                 <div className="home__dashboardsContainer">
-                    {this.state.data.length == 0 ?
-                        <center><div> <h2>Aun no tienes tableros creados, Crea uno :D</h2></div></center> :
-                        this.state.data.map((e) =>
-                            <Dashboard
-                                name={e.dsb_name}
-                                tableID={e.dsb_uuid}
-                                description={e.dsb_description}
-                            />
-                        )}
-                    {/* Eliminar al subir */}
-                    <Dashboard
-                        name="tablero"
-                        tableID="65223"
-                        description="lorem"
-                    />
-
-
+                    {this.state.data.length == 0?
+                    <center><div> <h2>Aun no tienes tableros creados, Crea uno :D</h2></div></center>:
+                    this.state.data.map((e) => 
+                        <Dashboard 
+                            name={e.dsb_name}
+                            tableID={e.dsb_uuid}
+                            description = {e.dsb_description}
+                        />
+                    )}
+                    
+                    
                 </div>
 
             </div>
