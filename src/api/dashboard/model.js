@@ -35,7 +35,13 @@ class Dashboard {
     }
 
     deleteDashboard = async (uuid, email) => {
-        const text = "DELETE FROM dashboard WHERE dsb_uuid = ? AND usr_email = ?";
+        const text = `DELETE dashboard, dashboard_x_label 
+                      FROM dashboard
+                      INNER JOIN dashboard_x_label 
+                      ON dashboard.dsb_uuid = dashboard_x_label.dsb_uuid
+                      WHERE dashboard.dsb_uuid = ? 
+                      AND dashboard.usr_email = ?`;
+
         const value = [uuid, email];
 
         try {
