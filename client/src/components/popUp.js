@@ -76,7 +76,7 @@ class popUp extends React.Component {
                             <div className="popUp_modal__inputContainer">
                                 <input className="popUp_modal__input" type="text" name="name" placeholder="Dashboard Name" onChange={this.handleChange} />
                                 <hr />
-                                <input className="popUp_modal__input" type="text" name="labels" placeholder="label" onChange={this.handleChange} />
+                                <input className="popUp_modal__input" type="number" name="labels" placeholder="label" onChange={this.handleChange} />
                                 <hr />
                                 <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
