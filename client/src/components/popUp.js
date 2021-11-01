@@ -4,6 +4,7 @@ import Plus from "../images/plus_Icon.svg"
 import Close from "../images/close_Icon.svg"
 import { Modal, ModalBody } from "reactstrap"
 import Cookies from 'universal-cookie'
+import Tag from "./tag";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../components/styles/style_popUp.css"
@@ -12,8 +13,8 @@ const cookies = new Cookies()
 
 class popUp extends React.Component {
     state = {
-        //open: true, del
-        open: false,
+        open: true,
+        // open: false,
         name: '',
         labels: '',
         description: ''
@@ -76,8 +77,55 @@ class popUp extends React.Component {
                             <div className="popUp_modal__inputContainer">
                                 <input className="popUp_modal__input" type="text" name="name" placeholder="Dashboard Name" onChange={this.handleChange} />
                                 <hr />
-                                <input className="popUp_modal__input" type="text" name="labels" placeholder="label" onChange={this.handleChange} />
-                                <hr />
+                                {/* <input className="popUp_modal__input" type="text" name="labels" placeholder="label" onChange={this.handleChange} /> */}
+                                <label className="inputContainer__Label">Labels</label><br />
+                                <div className="inputContainer__tagsContainer">
+                                    <Tag
+                                        name="Sports"
+                                        value="1"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Music"
+                                        value="2"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Education"
+                                        value="3"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Design"
+                                        value="4"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Programming"
+                                        value="5"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Maths"
+                                        value="6"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Science"
+                                        value="7"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Biology"
+                                        value="8"
+                                        onChange="onChange"
+                                    />
+                                    <Tag
+                                        name="Technology"
+                                        value="9"
+                                        onChange="onChange"
+                                    />
+                                </div>
                                 <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
                             </div>
