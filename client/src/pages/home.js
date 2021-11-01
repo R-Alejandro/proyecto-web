@@ -16,7 +16,7 @@ class home extends React.Component {
     componentDidMount(){
         const email = cookies.get('email');
         
-        axios.get(`http://localhost:3001/dashboards/${email}`)
+        axios.get(`http://localhost:3001/dashboards/get/${email}`)
         .then(res => {
             this.setState({
                 data: res.data.dashboards
