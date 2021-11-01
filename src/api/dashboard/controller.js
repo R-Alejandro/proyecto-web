@@ -8,7 +8,7 @@ const newDashboard = async (req, res) => {
 
     try {
         const resultD = await dashboardInstance.insertNewDashboard(newUuid, req.body.email, req.body.name, req.body.description);
-        const resultL = await dashboardInstance.insertLabel(newUuid, req.body.label);
+        const resultL = await dashboardInstance.insertLabel(newUuid, req.body.labels);
         res.status(201).json({
             resultD,
             resultL,
