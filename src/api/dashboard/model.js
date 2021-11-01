@@ -23,11 +23,14 @@ class Dashboard {
         const text = `INSERT INTO dashboard_x_label SET ?`;
         const values = {
             "dsb_uuid": dashboardId,
-            "lbl_id": labelId,
+            //"lbl_id": labelId,
         }
 
         try {
-            await pool.query(text, [values]);
+            for (let i = 0; i < labelId.length; i++) {
+                values.lbl_id = labelId[i];
+                await pool.query(text, [values]);
+            }
             return "Etiquetas añadidas";
         } catch (error) {
             throw error;

@@ -48,7 +48,7 @@ class popUp extends React.Component {
         };
 
         console.log('dashboard', dashboard)
-        /* axios.post(`http://localhost:3001/dashboards/new`, dashboard)
+        axios.post(`http://localhost:3001/dashboards/new`, dashboard)
             .then(res => {
                 if (res.data) {
                     console.log('TABLERO CREADO')
@@ -61,7 +61,7 @@ class popUp extends React.Component {
                 console.log(res);
                 console.log(res.data);
                 //this.handleRedirect(res);
-            }) */
+            })
     }
 
     render() {
