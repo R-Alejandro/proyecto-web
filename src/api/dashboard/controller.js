@@ -7,15 +7,17 @@ const newDashboard = async (req, res) => {
     const newUuid = uuidv4();
 
     try {
-        const result = await dashboardInstance.insertNewDashboard(newUuid, req.body.email, req.body.name, req.body.description);
+        const resultD = await dashboardInstance.insertNewDashboard(newUuid, req.body.email, req.body.name, req.body.description);
+        const resultL = await dashboardInstance.insertLabel(newUuid, req.body.label);
         res.status(201).json({
-            result,
+            resultD,
+            resultL,
         });
 
     } catch (error) {
         console.log(error); // log about the error
         res.status(400).json({
-            newDashboardsError: "Hubo error al crear el tablero, intente más tarde.",
+            newDashboardsError: "Hubo error al crear el tablero o insertar las etiquetas, intente más tarde.",
         });
     }
 }
