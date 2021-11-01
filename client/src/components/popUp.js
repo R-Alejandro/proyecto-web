@@ -15,7 +15,7 @@ class popUp extends React.Component {
         //open: true,
         open: false,
         name: '',
-        labels: '',
+        labels: [],
         description: ''
     }
 
@@ -26,6 +26,16 @@ class popUp extends React.Component {
     handleChange = event => {
         const { name, value } = event.target
         this.setState({ [name]: value })
+    }
+    handleArray = event => {
+        const label = [...this.state.labels]
+        if (event.target.checked) {
+            label.push(event.target.value)
+        } else {
+            let i = label.indexOf(event.target.value)
+            label.splice(i, 1)
+        }
+        this.setState({ labels: label })
     }
 
     handleSubmit = event => {
@@ -38,7 +48,7 @@ class popUp extends React.Component {
         };
 
         console.log('dashboard', dashboard)
-        axios.post(`http://localhost:3001/dashboards/new`, dashboard)
+        /* axios.post(`http://localhost:3001/dashboards/new`, dashboard)
             .then(res => {
                 if (res.data) {
                     console.log('TABLERO CREADO')
@@ -51,7 +61,7 @@ class popUp extends React.Component {
                 console.log(res);
                 console.log(res.data);
                 //this.handleRedirect(res);
-            })
+            }) */
     }
 
     render() {
@@ -76,7 +86,13 @@ class popUp extends React.Component {
                             <div className="popUp_modal__inputContainer">
                                 <input className="popUp_modal__input" type="text" name="name" placeholder="Dashboard Name" onChange={this.handleChange} />
                                 <hr />
-                                <input className="popUp_modal__input" type="number" name="labels" placeholder="label" onChange={this.handleChange} />
+                                {/* <input className="popUp_modal__input" type="number" name="labels" placeholder="label" onChange={this.handleChange} /> */}
+                                <input type="checkbox" name="labels" value="1" onChange={this.handleArray} />sports
+                                <br /> 
+                                <input type="checkbox" name="labels" value="2" onChange={this.handleArray} />music
+                                <br />
+                                <input type="checkbox" name="labels" value="3" onChange={this.handleArray} />education
+
                                 <hr />
                                 <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
