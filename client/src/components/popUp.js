@@ -13,8 +13,8 @@ const cookies = new Cookies()
 
 class popUp extends React.Component {
     state = {
-        open: true,
-        // open: false,
+        //open: true,
+        open: false,
         name: '',
         labels: [],
         description: ''
@@ -27,6 +27,16 @@ class popUp extends React.Component {
     handleChange = event => {
         const { name, value } = event.target
         this.setState({ [name]: value })
+    }
+    handleArray = event => {
+        const label = [...this.state.labels]
+        if (event.target.checked) {
+            label.push(event.target.value)
+        } else {
+            let i = label.indexOf(event.target.value)
+            label.splice(i, 1)
+        }
+        this.setState({ labels: label })
     }
 
     handleSubmit = event => {
@@ -83,59 +93,53 @@ class popUp extends React.Component {
                                     <Tag
                                         label="Sports"
                                         value="1"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Music"
                                         value="2"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Education"
                                         value="3"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Design"
                                         value="4"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Programming"
                                         value="5"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Maths"
                                         value="6"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Science"
                                         value="7"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Biology"
                                         value="8"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                     <Tag
                                         label="Technology"
                                         value="9"
-                                        onChange="onChange"
+                                        onChange={this.handleArray}
                                     />
                                 </div>
 
                                 <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
                             </div>
-                            {/* <select multiple="multiple" name="labels">
-                                    <option>sports</option>
-                                    <option>music</option>
-                                    <option>education</option>
-                                </select> */}
-                            {/* <input type={type} name={name} placeholder={label} onChange={onChange} /> */}
                             <input className="popUp_modal__submit" type="submit" value="CREATE" />
                         </form>
 
