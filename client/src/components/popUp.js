@@ -4,6 +4,7 @@ import Plus from "../images/plus_Icon.svg"
 import Close from "../images/close_Icon.svg"
 import { Modal, ModalBody } from "reactstrap"
 import Cookies from 'universal-cookie'
+import Tag from "./tag";
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "../components/styles/style_popUp.css"
@@ -86,23 +87,59 @@ class popUp extends React.Component {
                             <div className="popUp_modal__inputContainer">
                                 <input className="popUp_modal__input" type="text" name="name" placeholder="Dashboard Name" onChange={this.handleChange} />
                                 <hr />
-                                {/* <input className="popUp_modal__input" type="number" name="labels" placeholder="label" onChange={this.handleChange} /> */}
-                                <input type="checkbox" name="labels" value="1" onChange={this.handleArray} />sports
-                                <br /> 
-                                <input type="checkbox" name="labels" value="2" onChange={this.handleArray} />music
-                                <br />
-                                <input type="checkbox" name="labels" value="3" onChange={this.handleArray} />education
+                                {/* <input className="popUp_modal__input" type="text" name="labels" placeholder="label" onChange={this.handleChange} /> */}
+                                <label className="inputContainer__Label">Labels</label><br />
+                                <div className="inputContainer__tagsContainer">
+                                    <Tag
+                                        label="Sports"
+                                        value="1"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Music"
+                                        value="2"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Education"
+                                        value="3"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Design"
+                                        value="4"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Programming"
+                                        value="5"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Maths"
+                                        value="6"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Science"
+                                        value="7"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Biology"
+                                        value="8"
+                                        onChange={this.handleArray}
+                                    />
+                                    <Tag
+                                        label="Technology"
+                                        value="9"
+                                        onChange={this.handleArray}
+                                    />
+                                </div>
 
-                                <hr />
                                 <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
                             </div>
-                            {/* <select multiple="multiple" name="labels">
-                                    <option>sports</option>
-                                    <option>music</option>
-                                    <option>education</option>
-                                </select> */}
-                            {/* <input type={type} name={name} placeholder={label} onChange={onChange} /> */}
                             <input className="popUp_modal__submit" type="submit" value="CREATE" />
                         </form>
 

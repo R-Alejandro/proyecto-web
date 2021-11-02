@@ -1,0 +1,57 @@
+/* Customize the label (the container) */
+.tag__container {
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    margin-right: 1vw;
+}
+
+.tag__point{
+    height: 1.5vh;
+    width: 1.5vh;
+    background-color: #ffffff;
+    border-radius: 5vh;
+    margin-right: 1vw;
+    margin-left: 1vw;
+}
+
+/* Hide the browser's default checkbox */
+.tag__container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.tag__checkmark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5vh;
+    color: #ffffff;
+    cursor: pointer;
+
+    border-radius: 5vh;
+
+    background-color: #C4C4C4;
+    padding-right: 1.5vw;
+}
+
+/* On mouse-over, add a grey background color */
+.tag__container:hover input ~ .tag__checkmark{
+    background-color: #a9a9a9;
+}
+
+/* When the checkbox is checked, add a blue background */
+.tag__container input:checked ~ .tag__checkmark{
+    background-color: #2196F3;
+}
+
