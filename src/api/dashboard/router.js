@@ -1,4 +1,4 @@
-import { newDashboard, showDashboard, getDashboards, removeDashboard } from "./controller.js"
+import { newDashboard, showDashboard, getDashboards, removeDashboard, editDashboard } from "./controller.js"
 import { session } from "../../middleware/index.js";
 import { Router } from "express";
 
@@ -13,5 +13,6 @@ router.post('/new', check, newDashboard);
 router.get('/get/:email', getDashboards);
 router.get('/:uuid', showDashboard);
 router.get('/delete/:uuid', removeDashboard);
+router.put('/edit/:uuid', editDashboard);
 
 export default router;

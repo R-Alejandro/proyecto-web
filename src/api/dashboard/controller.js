@@ -40,10 +40,7 @@ const removeDashboard = async (req, res) => {
 
 const getDashboards = async (req, res) => {
 
-    const text = `SELECT d.dsb_uuid, d.usr_email, d.dsb_name, d.dsb_description, dxl.lbl_id 
-                  FROM dashboard d 
-                  INNER JOIN dashboard_x_label dxl ON d.dsb_uuid = dxl.dsb_uuid 
-                  WHERE d.usr_email = ?`;
+    const text = `CALL p_getDashboardXLabel(?)`;
 
     const values = [req.params.email];
     
@@ -86,9 +83,20 @@ const showDashboard = async (req, res) => {
     }
 }
 
+const editDashboard = async (req, res) => {
+    //get infor del tablero
+    const { name, description } = req.body 
+    const values = [name, description, req.params.uuid]
+    const message = dashboardInstance.editDashboard(values);
+    res.status(204).json({
+        message: message,
+    });
+}
+
 export {
     newDashboard,
     removeDashboard,
     getDashboards,
     showDashboard,
+    editDashboard,
 }

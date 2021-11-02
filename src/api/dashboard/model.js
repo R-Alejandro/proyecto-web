@@ -5,8 +5,8 @@ class Dashboard {
     insertNewDashboard = async (id, email, name, description) => {
         const text = `INSERT INTO dashboard SET ?`;
         const value = {
-            "dsb_uuid": id, 
-            "usr_email": email, 
+            "dsb_uuid": id,
+            "usr_email": email,
             "dsb_name": name,
             "dsb_description": description
         }
@@ -48,7 +48,23 @@ class Dashboard {
         } catch (error) {
             throw error;
         }
-    } 
+    }
+
+    /*     editLabels = async (uuid, labels) => {
+            const text = `UPDATE dashboard_x_label SET lbl_uuid = ?
+            WHERE dsb_uuid = ?`;
+        } */
+
+    editDashboard = async (values) => {
+        const text = `UPDATE dashboard SET dsb_name = ?, dsb_description = ? WHERE dsb_uuid = ?`;
+        try {
+            await pool.query(text, values);
+            return "Tablero actualizado";
+        } catch (error) {
+            throw error;
+        }
+
+    }
 }
 
 export default new Dashboard();

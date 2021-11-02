@@ -162,6 +162,16 @@
     padding-left: 1vh;
 }
 
+.inputContainer__Label{
+    border: none;
+    margin: 4vh 0 1vh 0;
+
+    font-family: 'Open Sans', sans-serif;   
+    font-size: 3vh;
+    color: #c4c4c4;
+    padding-left: 1vh;
+}
+
 .popUp_modal__input::placeholder{
     color: #c4c4c4;
 }
@@ -219,4 +229,6 @@ input:-webkit-autofill:active {
     text-decoration: none;
     color: #fff;
     cursor: pointer;
+
+    /* margin-bottom: 2vh; */
 }
