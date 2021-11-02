@@ -19,9 +19,9 @@ class home extends React.Component {
         axios.get(`http://localhost:3001/dashboards/get/${email}`)
         .then(res => {
             this.setState({
-                data: res.data.dashboards
+                data: res.data.dashboards[0]
             })
-            console.log(res.data.dashboards)
+            console.log(res.data.dashboards[0])
         })
     }
 
