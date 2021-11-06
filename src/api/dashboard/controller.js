@@ -104,10 +104,46 @@ const editDashboard = async (req, res) => {
     }
 }
 
+const newComponent = async (req, res) => {
+    const { uuid } = req.params;
+    const { name, description } = req.body;
+
+    const cp_uuid = uuidv4();
+
+    try {
+        const message = await dashboardInstance.insertComponent(uuid, name, description, cp_uuid);
+        res.status(200).json({
+            message
+        })
+    } catch (error) {
+        res.status(400).json({
+            error
+        });
+        
+    }
+}
+
+const removeComponent = async (req, res) => {
+    const { uuid } = req.params;
+
+    try {
+        const message = await dashboardInstance.deleteComponent(uuid);
+        res.status(200).json({
+            message
+        })
+    } catch (error) {
+        res.status(500).json({
+            error
+        })        
+    }
+}
+
 export {
     newDashboard,
     removeDashboard,
     getDashboards,
     showDashboard,
     editDashboard,
+    newComponent,
+    removeComponent,
 }

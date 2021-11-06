@@ -65,6 +65,33 @@ class Dashboard {
         }
 
     }
+
+    insertComponent = async (uuid, name, description, cp_uuid) => {
+        const text = `INSERT INTO component SET ?`;
+
+        const values = {
+            'cp_uuid': cp_uuid,
+            'dsb_uuid': uuid,
+            'cp_name': name,
+            'cp_description': description
+        }
+        try {
+            await pool.query(text, [values]);
+            return "componente creado";
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    deleteComponent = async (uuid) => {
+        const text = `DELETE FROM component WHERE cp_uuid = ?`;
+        try {
+            await pool.query(text, [uuid]);
+            return "componente eliminado";
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 export default new Dashboard();
