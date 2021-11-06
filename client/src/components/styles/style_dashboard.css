@@ -1,31 +1,28 @@
-.dashboard__link{
+.dashboard__link {
     text-decoration: none;
+    width: 80%;
 }
 
-.dashboard__dashboard_container{
-
+.dashboard__dashboard_container {
     display: flex;
     justify-content: center;
-
     margin-top: 5vh;
 }
 
-.dashboar_container__content{
-    width: 80%;
+.dashboar_container__content {
+    width: 100%;
     height: 20vh;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 4px rgba(0, 0, 0, 0.25);
 }
 
-.dashboar_container__content hr, .dashboar_container__content p{
+.dashboar_container__content hr, .dashboar_container__content p {
     margin: 0;
 }
 
-.container__titleDashboard_container{
+.container__titleDashboard_container {
     display: flex;
     width: 95%;
     justify-content: space-between;
@@ -33,36 +30,39 @@
     padding-top: 1vh;
 }
 
-.titleDashboard_title{
+.titleDashboard_title {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
-    color:#02457A;
+    color: #02457A;
     font-size: 3vh;
 }
 
-.titleDashboard_id{
+.titleDashboard_id {
     font-family: 'Yaldevi', sans-serif;
     font-weight: lighter;
     color: #97cad8;
     font-size: 2vh;
 }
 
-.dashboar_container__content hr{
+.dashboar_container__content hr {
     height: 0.2vh;
     width: 95%;
     color: #c4c4c4;
     opacity: 100%;
 }
 
-.dashboard__description{
+.dashboard__description {
     width: 90%;
     height: 50%;
     padding-top: 1vh;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
 
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
-    color: #9b9b9b;;
+    color: #9b9b9b;
     font-size: 2vh;
 }
