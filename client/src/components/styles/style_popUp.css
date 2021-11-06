@@ -5,6 +5,7 @@
     background-color: #018abe;
     width: 7vh;
     height: 7vh;
+    z-index: 10;
 
     display: flex;
     /* justify-content: space-evenly; */

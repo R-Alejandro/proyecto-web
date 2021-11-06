@@ -6,7 +6,7 @@ import signUp from "../pages/signUp"
 import NotFound from '../pages/notFound'
 import confirmationEmail from "../pages/confirmationEmail"
 import home from "../pages/home"
-import Dashboards from "../pages/dashboards"
+import Dashboards from "../pages/all_dashboards"
 import './styles/fonts.css'
 
 

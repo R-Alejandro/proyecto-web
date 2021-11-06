@@ -1,5 +1,8 @@
 .confirmationEmail__container{
-    height: 100vh;
+    max-height: 100vh;
+    max-width: 100vw;
+    /* overflow-y: hidden;
+	overflow-x: hidden; */
 }
 
 .confirmationEmail__textContainer{
@@ -9,7 +12,7 @@
     display: flex;
     flex-direction: column;
     justify-content:space-between;
-    height: 50%;
+    height: 60vh;
     
 }
 
@@ -37,7 +40,6 @@
 
 .textContainer__Link{
     text-decoration: none;
-    transform: translateY(-4vh);
 }
 
 .textContainer__Link p{
@@ -53,10 +55,19 @@
     position: absolute;
     right: 0vw;
     bottom: 0vh;
-    width: 80vw;
+    width: 70vw;
     max-width: 70%;
+    overflow: hidden;
+    /* transform: translateX(5vw); */
+    display: flex;
+    justify-content: flex-end;
+
 }
 
 .confirmationEmail__Image img{
-    width: 100%;
+    width: 90%;
+    right: 0;
+    /* background-color: chartreuse; */
+    /* transform: translateX(5vw); */
+
 }

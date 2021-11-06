@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import "../components/styles/style_dashboard.css"
 import { Link } from "react-router-dom"
 
@@ -9,11 +9,11 @@ class dashboard extends React.Component {
         super(props)
     }
 
-    route = "/dashboard/"+ this.props.tableID;
+    route = "/dashboard/" + this.props.tableID;
     render() {
         return (
-            <Link className="dashboard__link" to={this.route}>
-                <div className="dashboard__dashboard_container">
+            <div className="dashboard__dashboard_container">
+                <Link className="dashboard__link" to={this.route}>
                     <div className="dashboar_container__content">
                         <div className="container__titleDashboard_container">
                             {/* ---------------Nombre del tablero-------------- */}
@@ -31,8 +31,8 @@ class dashboard extends React.Component {
                             {this.props.description}
                         </p>
                     </div>
-                </div>
-            </Link>
+                </Link>
+            </div>
         )
     }
 
