@@ -62,10 +62,13 @@ const getDashboards = async (req, res) => {
 
 const showDashboard = async (req, res) => {
     
-    const text = `SELECT d.dsb_uuid, d.usr_email, d.dsb_name, d.dsb_description, dxl.lbl_id 
-                  FROM dashboard d 
-                  INNER JOIN dashboard_x_label dxl ON d.dsb_uuid = dxl.dsb_uuid 
-                  WHERE d.dsb_uuid = ?`;
+    const text = `SELECT d.dsb_uuid, d.usr_email, d.dsb_name, d.dsb_description,
+                  GROUP_CONCAT(l.lbl_name) AS labels
+                  FROM dashboard d
+                  INNER JOIN dashboard_x_label dxl ON d.dsb_uuid = dxl.dsb_uuid
+                  INNER JOIN label l ON dxl.lbl_id = l.lbl_id
+                  WHERE d.dsb_uuid = ?
+                  GROUP BY dxl.dsb_uuid`;
                   
     const values = [req.params.uuid];
 
@@ -85,12 +88,20 @@ const showDashboard = async (req, res) => {
 
 const editDashboard = async (req, res) => {
     //get infor del tablero
-    const { name, description } = req.body 
-    const values = [name, description, req.params.uuid]
-    const message = dashboardInstance.editDashboard(values);
-    res.status(204).json({
-        message: message,
-    });
+    const { name, description } = req.body;
+    const values = [name, description, req.params.uuid];
+
+    try {
+        const message = await dashboardInstance.editDashboard(values);
+        res.status(204).json({
+            message,
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            editDashboardError: "Hubo un error al editar el tablero, intente más tarde",
+        });
+    }
 }
 
 export {
