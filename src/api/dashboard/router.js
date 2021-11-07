@@ -17,5 +17,4 @@ router.put('/edit/:uuid', editDashboard);
 router.post('/:uuid/new', newComponent);
 router.delete('/:uuid/delete', removeComponent);
 
-
 export default router;

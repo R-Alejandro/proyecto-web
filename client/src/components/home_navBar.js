@@ -21,10 +21,10 @@ class home_navBar extends React.Component {
     componentDidMount() {
 
         // --------------------------------------------------------------Descomentar esto al subir
-        // if(!this.props.cookie.get('email')){
-        //     window.location.href = 'http://localhost:3000/signin';
-        //     alert('No se ha iniciado sesion')
-        // }
+        if(!this.props.cookie.get('email')){
+            window.location.href = 'http://localhost:3000/signin';
+            alert('No se ha iniciado sesion')
+        }
     }
 
     logoutHandler = () => {
@@ -54,8 +54,8 @@ class home_navBar extends React.Component {
                     </DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem header> {!this.props.name ? "Usuario" : this.props.name} </DropdownItem>
-                        <DropdownItem className="home_navbar__DropItemActive">Profile</DropdownItem>
-                        <DropdownItem className="home_navbar__DropItemActive">Settings</DropdownItem>
+                        {/* <DropdownItem className="home_navbar__DropItemActive">Profile</DropdownItem>
+                        <DropdownItem className="home_navbar__DropItemActive">Settings</DropdownItem> */}
                         <DropdownItem divider />
                         <DropdownItem className="home_navbar__DropItemActive" tag="button" onClick={() => this.logoutHandler()}>
                             <div className="home_navbar__directionalButons">

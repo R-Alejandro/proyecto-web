@@ -3,97 +3,91 @@ import Home_navBar from '../components/home_navBar'
 import AllDashboards_menuOfDashboard from '../components/allDashboards_menuOfDashboard'
 import PosIt from "../components/posIt"
 import PopUp from "../components/all_dashboard__popUp"
-
+import WithoutBoard from "../components/home_withoutBoards"
 import axios from "axios"
 import Cookies from "universal-cookie"
+
+import CloseIcon from "../images/close_postIt_icon.svg"
+import "../components/styles/style_postIt.css"
 
 const cookies = new Cookies()
 
 class all_dashboards extends React.Component {
 
-    
-    host = window.location.href.split("dashboard/", 1)
-    
-    componentDidMount(){
-        console.log("el id del tablero es", window.location.href.split(this.host+"dashboard/", -1))
+    state = {
+        component: [],
+        dashboard: []
     }
 
-    render(){
-        return(
-            <>
-                <Home_navBar/>
-                <PopUp/>
-                <AllDashboards_menuOfDashboard
-                    name="name Dashboards"
-                    labels="a"
-                    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et est sed lectus cursus dapibus a ac quam. Maecenas a augue molestie, egestas massa ac, porta urna. Vivamus ac odio et sapien placerat sollicitudin sed sed nisi. Fusce orci quam, maximus vitae ligula et, ultricies vestibulum tellus. Phasellus a porta mi."
-                />
+    host = window.location.href.split("dashboard/", 1)
+    idDashboard = window.location.href.split(this.host + "dashboard/", -1);
+    componentDidMount() {
 
+
+        axios.get(`http://localhost:3001/dashboards/${this.idDashboard[1]}`)
+            .then(res => {
+                this.setState({
+                    dashboard: res.data.dashboard,
+                    component: res.data.component
+                })
+            })
+        console.log("id dashboard", this.idDashboard[1]);
+    }
+
+    deleteHandler = (uuid) => {
+        console.log(uuid)
+        axios.delete(`http://localhost:3001/dashboards/${uuid}/delete`)
+            .then(res => {
+                if (res.data.error){
+                    alert(res.data.error)
+                }else {
+                    alert(res.data.message)
+                }
+                window.location.href = `http://localhost:3000/dashboard/${this.idDashboard[1]}`;
+            })
+    }
+
+    render() {
+        return (
+            <>
+                <Home_navBar
+                    name={cookies.get('nickname')}
+                    cookie={cookies}
+                />
+                <PopUp
+                    idDashboard={this.idDashboard[1]}
+                />
+                <div>
+                    {this.state.dashboard.length == 0 ?
+                        <WithoutBoard />
+                        :
+                        this.state.dashboard.map((e) =>
+                            <AllDashboards_menuOfDashboard
+                                name={e.dsb_name}
+                                labels={e.labels}
+                                description={e.dsb_description}
+                                idDashboard={this.idDashboard[1]}
+                            />
+                        )}
+                </div>
                 <div className="all_dashboards__postIt_container">
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et est sed lectus cursus dapibus a ac quam. Maecenas a augue molestie, egestas massa ac, porta urna. Vivamus ac odio et sapien placerat sollicitudin sed sed nisi. Fusce orci quam, maximus vitae ligula et, ultricies vestibulum tellus. Phasellus a porta mi."
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et est sed lectus cursus dapibus a ac quam. Maecenas a augue molestie, egestas massa ac, porta urna. Vivamus ac odio et sapien placerat sollicitudin sed sed nisi. Fusce orci quam, maximus vitae ligula et, ultricies vestibulum tellus. Phasellus a porta mi."
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et est sed lectus cursus dapibus a ac quam. Maecenas a augue molestie, egestas massa ac, porta urna. Vivamus ac odio et sapien placerat sollicitudin sed sed nisi. Fusce orci quam, maximus vitae ligula et, ultricies vestibulum tellus. Phasellus a porta mi."
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
-                    <PosIt
-                        name = "Post Name"
-                        description = "equisdedededededed"
-                    />
+                    {this.state.component.length == 0 ?
+                        <WithoutBoard /> //hacer componente con el nombre posit
+                        :
+                        this.state.component.map((e) =>
+                            // <PosIt
+                            //     name={e.cp_name}
+                            //     description={e.cp_description}
+                            // />
+                            <div className="postIt__container">
+                                <div>
+                                    <p className="postIt_name">{e.cp_name}</p>
+                                    <img src={CloseIcon} onClick={() => this.deleteHandler(e.cp_uuid)} />
+                                </div>
+                                <p className="postIt_description">{e.cp_description}</p>
+                            </div>
+                        )}
+
                 </div>
             </>
         )

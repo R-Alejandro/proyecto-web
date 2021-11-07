@@ -1,9 +1,9 @@
 import pool from "../../services/mysqlDB/mysqlConn.js";
 import dashboardInstance from "./model.js";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 const newDashboard = async (req, res) => {
-   
+
     const newUuid = uuidv4();
 
     try {
@@ -23,7 +23,7 @@ const newDashboard = async (req, res) => {
 }
 
 const removeDashboard = async (req, res) => {
-    
+
     try {
         const result = await dashboardInstance.deleteDashboard(req.params.uuid, req.body.email);
         res.status(200).json({
@@ -43,7 +43,7 @@ const getDashboards = async (req, res) => {
     const text = `CALL p_getDashboardXLabel(?)`;
 
     const values = [req.params.email];
-    
+
     try {
         const [dashboards] = await pool.query(text, values);
 
@@ -61,7 +61,7 @@ const getDashboards = async (req, res) => {
 }
 
 const showDashboard = async (req, res) => {
-    
+
     const text = `SELECT d.dsb_uuid, d.usr_email, d.dsb_name, d.dsb_description,
                   GROUP_CONCAT(l.lbl_name) AS labels
                   FROM dashboard d
@@ -69,14 +69,19 @@ const showDashboard = async (req, res) => {
                   INNER JOIN label l ON dxl.lbl_id = l.lbl_id
                   WHERE d.dsb_uuid = ?
                   GROUP BY dxl.dsb_uuid`;
-                  
+    const text2 = `SELECT cp_uuid, cp_name, cp_description
+                  FROM component
+                  WHERE dsb_uuid = ?`;
+
     const values = [req.params.uuid];
 
     try {
         const [dashboard] = await pool.query(text, values);
+        const [component] = await pool.query(text2, values);
         res.status(200).json({
             dashboard,
-        });  
+            component
+        });
 
     } catch (error) {
         console.log(error);
@@ -119,7 +124,7 @@ const newComponent = async (req, res) => {
         res.status(400).json({
             error
         });
-        
+
     }
 }
 
@@ -134,7 +139,7 @@ const removeComponent = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             error
-        })        
+        })
     }
 }
 

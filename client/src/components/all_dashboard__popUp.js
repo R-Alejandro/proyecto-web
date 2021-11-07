@@ -20,6 +20,10 @@ class all_dashboard__popUp extends React.Component {
         description: ''
     }
 
+    constructor(props) {
+        super(props)
+    }
+
     handleOpenModal = () => {
         this.setState({ open: !this.state.open })
     }
@@ -28,33 +32,23 @@ class all_dashboard__popUp extends React.Component {
         const { name, value } = event.target
         this.setState({ [name]: value })
     }
-    handleArray = event => {
-        const label = [...this.state.labels]
-        if (event.target.checked) {
-            label.push(event.target.value)
-        } else {
-            let i = label.indexOf(event.target.value)
-            label.splice(i, 1)
-        }
-        this.setState({ labels: label })
-    }
 
     handleSubmit = event => {
         event.preventDefault();
-        const dashboard = {
+        const component = {
             name: this.state.name,
-            labels: this.state.labels,
-            description: this.state.description,
-            email: cookies.get('email')
+            description: this.state.description
         };
 
-        console.log('dashboard', dashboard)
-        axios.post(`http://localhost:3001/dashboards/new`, dashboard)
+        //const idDashboard = window.location.href.split(this.host + "dashboard/", -1);
+
+        console.log('dashboard', component)
+        axios.post(`http://localhost:3001/dashboards/${this.props.idDashboard}/new`, component)
             .then(res => {
                 if (res.data) {
                     console.log('Post-It Creado')
                     this.handleOpenModal()
-                    window.location.href = 'http://localhost:3000/home';
+                    window.location.href = `http://localhost:3000/dashboard/${this.props.idDashboard}`;
                 } else {
                     console.log('ERRRORRRRR')
                 }
