@@ -3,8 +3,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 10%;
+    height: 10vh;
     padding: 0 3vw;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0  ;
 }
 
 .home_navbar__Logo {
@@ -15,7 +18,6 @@
 .home_navbar__Logo p {
     text-decoration: none;
     margin: 0;
-
     margin-left: 2vw;
     color: #fff;
     font-family: 'Open Sans', sans-serif;
@@ -25,11 +27,40 @@
     letter-spacing: 0.3vw;
 }
 
-.home_navbar__Logo img{
+.home_navbar__Logo img {
     /* width: 5vw; */
     height: 7vh;
 }
 
 .home_navbar__directionalButons {
     display: flex;
+}
+
+.home_navbar__directionalButons button {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    background-color: transparent;
+}
+
+.home_navbar__DropItemActive:active {
+    background-color: #018abe;
+}
+
+.home_navBar__profileContent:hover {
+    cursor: pointer;
+}
+
+.profileContent__profileIcon {
+    margin-right: 1vw;
+    width: 5vh;
+}
+
+.profileContent__arrowIcon {
+    width: 1.8vh;
 }

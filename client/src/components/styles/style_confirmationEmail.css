@@ -1,0 +1,73 @@
+.confirmationEmail__container{
+    max-height: 100vh;
+    max-width: 100vw;
+    /* overflow-y: hidden;
+	overflow-x: hidden; */
+}
+
+.confirmationEmail__textContainer{
+    padding-top: 6vh;
+    padding-left: 5%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    height: 60vh;
+    
+}
+
+.confirmationEmail__textContainer p{
+    margin: 0;
+}
+
+.textContainer__h1{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color:#02457A;
+    font-size: 10vh;
+    letter-spacing: 0.3vw;
+
+}
+
+.textContainer__h2{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    color:#018ABE;
+    font-size: 5vh;
+    letter-spacing: 0.5vw;
+    width: 45vw;
+}
+
+.textContainer__Link{
+    text-decoration: none;
+}
+
+.textContainer__Link p{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2.5vh;
+    color: #02457A;
+    cursor: pointer; 
+}
+
+/* Image */
+.confirmationEmail__Image{
+    position: absolute;
+    right: 0vw;
+    bottom: 0vh;
+    width: 70vw;
+    max-width: 70%;
+    overflow: hidden;
+    /* transform: translateX(5vw); */
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.confirmationEmail__Image img{
+    width: 90%;
+    right: 0;
+    /* background-color: chartreuse; */
+    /* transform: translateX(5vw); */
+
+}
