@@ -19,6 +19,7 @@ class signUp extends React.Component {
         nickname: '',
         password: ''
     }
+    host = window.location.hostname;
 
     handleChange = event => {
         const { name, value } = event.target
@@ -35,7 +36,7 @@ class signUp extends React.Component {
         };
         console.log()
         console.log('USEEEERRR', user)
-        axios.post(`http://localhost:3001/auth/signup`, user)
+        axios.post(`http://${this.host}:3001/auth/signup`, user)
             .then(res => {
                 if (res.data.estado) {
                     console.log('USUARIO CREADO')

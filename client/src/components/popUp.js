@@ -20,6 +20,8 @@ class popUp extends React.Component {
         description: ''
     }
 
+    host = window.location.hostname;
+
     handleOpenModal = () => {
         this.setState({ open: !this.state.open })
     }
@@ -49,12 +51,12 @@ class popUp extends React.Component {
         };
 
         console.log('dashboard', dashboard)
-        axios.post(`http://localhost:3001/dashboards/new`, dashboard)
+        axios.post(`http://${this.host}:3001/dashboards/new`, dashboard)
             .then(res => {
                 if (res.data) {
                     console.log('TABLERO CREADO')
                     this.handleOpenModal()
-                    window.location.href = 'http://localhost:3000/home';
+                    window.location.href = `http://${this.host}:3000/home`;
                 } else {
                     console.log('ERRRORRRRR')
                 }

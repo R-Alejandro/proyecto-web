@@ -15,10 +15,12 @@ class home extends React.Component {
     state = {
         data: []
     }
+
+    host = window.location.hostname;
+
     componentDidMount() {
         const email = cookies.get('email');
-
-        axios.get(`http://localhost:3001/dashboards/get/${email}`)
+        axios.get(`http://${this.host}:3001/dashboards/get/${email}`)
             .then(res => {
                 this.setState({
                     data: res.data.dashboards[0]

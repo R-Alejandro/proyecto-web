@@ -19,6 +19,7 @@ class signIn extends React.Component {
         email: '',
         password: ''
     }
+    host = window.location.hostname;
 
     handleChange = event => {
         const { name, value } = event.target
@@ -33,7 +34,7 @@ class signIn extends React.Component {
         };
         console.log()
         console.log('USEEEERRR', user)
-        axios.post(`http://localhost:3001/auth/login`, user)
+        axios.post(`http://${this.host}:3001/auth/login`, user)
             .then(res => {
                 if (res.data) {
                     console.log('INTENTO DE LOGEO')
