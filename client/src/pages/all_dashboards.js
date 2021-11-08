@@ -39,9 +39,9 @@ class all_dashboards extends React.Component {
         console.log(uuid)
         axios.delete(`http://${this.hostname}:3001/dashboards/${uuid}/delete`)
             .then(res => {
-                if (res.data.error){
+                if (res.data.error) {
                     alert(res.data.error)
-                }else {
+                } else {
                     alert(res.data.message)
                 }
                 window.location.href = `http://${this.hostname}:3000/dashboard/${this.idDashboard[1]}`;
@@ -60,7 +60,7 @@ class all_dashboards extends React.Component {
                 />
                 <div>
                     {this.state.dashboard.length == 0 ?
-                        <WithoutBoard />
+                        <p>Error, No hay dashboard con informacion</p>
                         :
                         this.state.dashboard.map((e) =>
                             <AllDashboards_menuOfDashboard

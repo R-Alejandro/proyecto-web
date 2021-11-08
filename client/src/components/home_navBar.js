@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {Link} from 'react-router-dom'
+
 
 import Logo from './../images/navBar_Logo.svg'
 import menuIcon from "./../images/navBar_menu_Icon.svg"
@@ -40,9 +42,9 @@ class home_navBar extends React.Component {
                 <d className="home_navbar__menuIcon">
                     <img src={menuIcon} />
                 </d>
-                <div className="home_navbar__Logo">
+                <Link to="/home" className="home_navbar__Logo">
                     <img src={Logo} />
-                </div>
+                </Link>
 
                 <UncontrolledDropdown className="home_navBar__profileDropDownContent">
                     <DropdownToggle
