@@ -52,7 +52,7 @@ class signUp extends React.Component {
     //redireccionamiento temporal
     handleRedirect = res => {
         if (res.status === 201){
-            window.location.href = 'http://localhost:3000/confirmation/email';
+            window.location.href = `http://${this.host}:3000/confirmation/email`;
         }else{
             console.log('ERROR AL REGISTRAR EL USUARIO')
         }
