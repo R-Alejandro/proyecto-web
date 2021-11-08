@@ -12,7 +12,7 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', async (req, res) => {
     console.log('DATAAAAA', req.body);
-    const fullURL = `${req.protocol}://${req.hostname}:${config.PORT}${req.originalUrl}/`
+    const fullURL = `${req.protocol}://${req.hostname}:3000/signin`
     const response = await authServiceInstance.SignUp(req.body, fullURL);
 
     if(!response) {
