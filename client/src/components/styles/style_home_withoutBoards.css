@@ -1,4 +1,6 @@
 .withoutBoard__container{
+    position: relative;
+    z-index: -10;
     width: 100vw;
     height: 50vh;
     transform: translateY(-10vh);
@@ -38,5 +40,6 @@
 }
 
 .withoutBoard__Image img{
-    width: 90%;
+    width: 90% !important;
+    transform: translate(0);
 }

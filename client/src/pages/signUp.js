@@ -114,7 +114,7 @@ class signUp extends React.Component {
                             onChange={this.handleChange}
                         />
                         <div className="form__checkbox">
-                            <input type="checkbox" name="check" />
+                            <input required type="checkbox" name="check" />
                             <p>
                                 I agree to the
                                 <Link to="#">

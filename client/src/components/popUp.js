@@ -85,7 +85,7 @@ class popUp extends React.Component {
                         <h1>Create New Dashboard</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div className="popUp_modal__inputContainer">
-                                <input className="popUp_modal__input" type="text" name="name" placeholder="Dashboard Name" onChange={this.handleChange} />
+                                <input maxLength="43" required className="popUp_modal__input" type="text" name="name" placeholder="Dashboard Name" onChange={this.handleChange} />
                                 <hr />
                                 {/* <input className="popUp_modal__input" type="text" name="labels" placeholder="label" onChange={this.handleChange} /> */}
                                 <label className="inputContainer__Label">Labels</label><br />
@@ -137,7 +137,7 @@ class popUp extends React.Component {
                                     />
                                 </div>
 
-                                <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
+                                <input required className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
                             </div>
                             <input className="popUp_modal__submit" type="submit" value="CREATE" />

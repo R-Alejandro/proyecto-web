@@ -79,9 +79,9 @@ class all_dashboard__popUp extends React.Component {
                         <h1>Create New Post-It</h1>
                         <form onSubmit={this.handleSubmit}>
                             <div className="popUp_modal__inputContainer">
-                                <input className="popUp_modal__input" type="text" name="name" placeholder="Post-It Name" onChange={this.handleChange} />
+                                <input maxLength="32" required className="popUp_modal__input" type="text" name="name" placeholder="Post-It Name" onChange={this.handleChange} />
                                 <hr />
-                                <input className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
+                                <input required className="popUp_modal__input" type="text" name="description" placeholder="Description" onChange={this.handleChange} />
                                 <hr />
                             </div>
                             <input className="popUp_modal__submit" type="submit" value="CREATE" />

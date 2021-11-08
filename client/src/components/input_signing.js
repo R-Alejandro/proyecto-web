@@ -6,7 +6,7 @@ const input = ({ icon, label, type, name, onChange }) => (
     <div className="signing__contentInput">
         <div className="contentInput__input">
             <img src={icon} />
-            <input type={type} name={name} placeholder={label} onChange={onChange} />
+            <input required type={type} name={name} placeholder={label} onChange={onChange} />
         </div>
         <hr className="contentInput__bar"/>
     </div>
