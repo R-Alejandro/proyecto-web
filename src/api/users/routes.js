@@ -24,4 +24,22 @@ router.get('/one', (req, res) => {
     //so.. this return name email nickname and passw
     }
 });
+
+router.delete('/delete/:email', async (req, res) => {
+    const { email } = req.params;
+    const sql = `DELETE FROM user WHERE usr_email = ?`;
+
+    try {
+        const response = await pool.query(sql, [email]);
+        res.status(200).json({
+            response
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({
+            error
+        })
+    }
+})
+
 export default router;

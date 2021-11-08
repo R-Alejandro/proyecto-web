@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from 'react-router-dom'
-
+import axios from "axios"
 
 import Logo from './../images/navBar_Logo.svg'
 import menuIcon from "./../images/navBar_menu_Icon.svg"
@@ -36,6 +36,18 @@ class home_navBar extends React.Component {
 
     }
 
+    deleteHandler = () => {
+        axios.delete(`http://${this.host}:3001/users/delete/${this.props.cookie.get('email')}`)
+            .then(res => {
+                if (res.data.error) {
+                    alert('NO SE PUDO ELIMINAR CUENTA')
+                    
+                }else {
+                    alert('CUENTA ELIMINADA, ADIOS :(')
+                    this.logoutHandler();
+                }
+            })
+    }
     render() {
         return (
             <div className="home_navbar__content">
@@ -62,6 +74,11 @@ class home_navBar extends React.Component {
                         <DropdownItem className="home_navbar__DropItemActive" tag="button" onClick={() => this.logoutHandler()}>
                             <div className="home_navbar__directionalButons">
                                 Log Out
+                            </div>
+                        </DropdownItem>
+                        <DropdownItem className="home_navbar__DropItemActive" tag="button" onClick={() => this.deleteHandler()}>
+                            <div className="home_navbar__directionalButons">
+                                Delete Account
                             </div>
                         </DropdownItem>
                     </DropdownMenu>

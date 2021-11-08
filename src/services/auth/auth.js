@@ -27,7 +27,7 @@ class AuthService{
     }
 
     startEmailSequence = async (email, url, userToken) => {
-        url = url.concat(userToken);
+        //url = url.concat(userToken);
         console.log(url);
         await mailer.sendEmailConfirmation(email, url);
     }
