@@ -15,14 +15,14 @@ class home_navBar extends React.Component {
         super(props)
     }
 
-
+    host = window.location.hostname;
 
     // if user is auth 
     componentDidMount() {
 
         // --------------------------------------------------------------Descomentar esto al subir
         if(!this.props.cookie.get('email')){
-            window.location.href = 'http://localhost:3000/signin';
+            window.location.href = `http://${this.host}:3000/signin`;
             alert('No se ha iniciado sesion')
         }
     }
@@ -30,7 +30,7 @@ class home_navBar extends React.Component {
     logoutHandler = () => {
         this.props.cookie.remove('nickname')
         this.props.cookie.remove('email')
-        window.location.href = 'http://localhost:3000/';
+        window.location.href = `http://${this.host}:3000/`;
 
     }
 

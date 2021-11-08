@@ -20,11 +20,12 @@ class all_dashboards extends React.Component {
     }
 
     host = window.location.href.split("dashboard/", 1)
+    hostname = window.location.hostname;
     idDashboard = window.location.href.split(this.host + "dashboard/", -1);
     componentDidMount() {
 
 
-        axios.get(`http://localhost:3001/dashboards/${this.idDashboard[1]}`)
+        axios.get(`http://${this.hostname}:3001/dashboards/${this.idDashboard[1]}`)
             .then(res => {
                 this.setState({
                     dashboard: res.data.dashboard,
@@ -36,14 +37,14 @@ class all_dashboards extends React.Component {
 
     deleteHandler = (uuid) => {
         console.log(uuid)
-        axios.delete(`http://localhost:3001/dashboards/${uuid}/delete`)
+        axios.delete(`http://${this.hostname}:3001/dashboards/${uuid}/delete`)
             .then(res => {
                 if (res.data.error){
                     alert(res.data.error)
                 }else {
                     alert(res.data.message)
                 }
-                window.location.href = `http://localhost:3000/dashboard/${this.idDashboard[1]}`;
+                window.location.href = `http://${this.hostname}:3000/dashboard/${this.idDashboard[1]}`;
             })
     }
 

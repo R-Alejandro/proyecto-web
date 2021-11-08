@@ -19,6 +19,7 @@ class all_dashboard__popUp extends React.Component {
         labels: [],
         description: ''
     }
+    host = window.location.hostname;
 
     constructor(props) {
         super(props)
@@ -43,12 +44,12 @@ class all_dashboard__popUp extends React.Component {
         //const idDashboard = window.location.href.split(this.host + "dashboard/", -1);
 
         console.log('dashboard', component)
-        axios.post(`http://localhost:3001/dashboards/${this.props.idDashboard}/new`, component)
+        axios.post(`http://${this.host}:3001/dashboards/${this.props.idDashboard}/new`, component)
             .then(res => {
                 if (res.data) {
                     console.log('Post-It Creado')
                     this.handleOpenModal()
-                    window.location.href = `http://localhost:3000/dashboard/${this.props.idDashboard}`;
+                    window.location.href = `http://${this.host}:3000/dashboard/${this.props.idDashboard}`;
                 } else {
                     console.log('ERRRORRRRR')
                 }

@@ -15,18 +15,20 @@ class allDashboards_menuOfDashboard extends React.Component {
         super(props)
     }
 
+    host = window.location.hostname;
+
     deleteHandler = () => {
         const dashboard = {
             email: cookies.get('email')
         }
-        axios.delete(`http://localhost:3001/dashboards/delete/${this.props.idDashboard}`, {data: dashboard})
+        axios.delete(`http://${this.host}:3001/dashboards/delete/${this.props.idDashboard}`, {data: dashboard})
             .then(res => {
                 if (res.data.error){
                     alert(res.data.deleteDashboardsError)
                 }else {
                     
                     alert(res.data.result)
-                    window.location.href = `http://localhost:3000/home`;
+                    window.location.href = `http://${this.host}:3000/home`;
                 }
                 
             })

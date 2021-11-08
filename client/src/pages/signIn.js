@@ -19,6 +19,7 @@ class signIn extends React.Component {
         email: '',
         password: ''
     }
+    host = window.location.hostname;
 
     handleChange = event => {
         const { name, value } = event.target
@@ -33,7 +34,7 @@ class signIn extends React.Component {
         };
         console.log()
         console.log('USEEEERRR', user)
-        axios.post(`http://localhost:3001/auth/login`, user)
+        axios.post(`http://${this.host}:3001/auth/login`, user)
             .then(res => {
                 if (res.data) {
                     console.log('INTENTO DE LOGEO')
@@ -53,11 +54,11 @@ class signIn extends React.Component {
         if(!res.data){
             console.log('USUARIO O CONTRASEÑA INCORRECTA')
             alert('USUARIO O CONTRASEÑA INCORRECTA')
-            window.location.href = 'http://localhost:3000/signin';
+            window.location.href = `http://${this.host}:3000/signin`;
         } else{
             cookies.set('email', res.data.email)
             cookies.set('nickname', res.data.nickname)
-            window.location.href = 'http://localhost:3000/home';
+            window.location.href = `http://${this.host}:3000/home`;
         }
         
     }
