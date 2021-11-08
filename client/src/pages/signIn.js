@@ -54,11 +54,11 @@ class signIn extends React.Component {
         if(!res.data){
             console.log('USUARIO O CONTRASEÑA INCORRECTA')
             alert('USUARIO O CONTRASEÑA INCORRECTA')
-            window.location.href = 'http://localhost:3000/signin';
+            window.location.href = `http://${this.host}:3000/signin`;
         } else{
             cookies.set('email', res.data.email)
             cookies.set('nickname', res.data.nickname)
-            window.location.href = 'http://localhost:3000/home';
+            window.location.href = `http://${this.host}:3000/home`;
         }
         
     }
